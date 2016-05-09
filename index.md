@@ -127,7 +127,7 @@ title: Front-end Hyperpolyglot
       &lt;div dom-if="shouldShow"></div&gt;
     </td>
     <td>
-      &lt;div v-show="shouldShow">hi<div/&gt;
+      &lt;div v-if="shouldShow">hi<div/&gt;
     </td>
   </tr>
 
