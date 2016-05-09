@@ -108,24 +108,38 @@ title: Front-end Hyperpolyglot
   <tr>
     <td>DOM add/remove</td>
     <td>
-      shouldShow ? &lt;div>hi</div&gt; : null
+      shouldShow ? &lt;div></div&gt; : null
     </td>
     <td>
-      &lt;div ng-if="shouldShow" /&gt;
+      &lt;div ng-if="shouldShow"></div&gt;
     </td>
     <td>
-      &#123;{#if shouldShow}&#125;<br />
-        &lt;div>hi</div&gt;<br />
-      &#123;{/if}&#125;
+      &#123;{#if shouldShow}&#125;<div&gt;</div&gt;&#123;{/if}&#125;
     </td>
     <td>
       &lt;div dom-if="shouldShow"></div&gt;
     </td>
     <td>
-      &lt;div v-if="shouldShow">hi<div/&gt;
+      &lt;div v-if="shouldShow"><div/&gt;
     </td>
   </tr>
 
+  <tr>
+    <td>Repeat</td>
+    <td>
+      items.map(item => &lt;div></div&gt;)
+    </td>
+    <td>
+      &lt;div ng-repeat="item in items"&gt;
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+      &lt;div v-for="item in items">
+    </td>
+  </tr>
   <!-- prop validation -->
 
   <tr>
