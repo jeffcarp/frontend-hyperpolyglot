@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # frontend-hyperpolyglot
 
 |     | React | Angular | Ember | Polymer | Vue |
