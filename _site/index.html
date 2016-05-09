@@ -1,9 +1,18 @@
----
-layout: default
-title: Front-end Hyperpolyglot
----
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Front-end Hyperpolyglot</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/hyperpolyglot.css">
+  </head>
+  <body>
 
-# frontend-hyperpolyglot
+    <div class="page-content">
+      <div class="wrapper">
+        <h1 id="frontend-hyperpolyglot">frontend-hyperpolyglot</h1>
 
 <table>
   <tr>
@@ -94,7 +103,7 @@ title: Front-end Hyperpolyglot
   <tr>
     <td>CSS show/hide</td>
     <td>
-      &lt;div style=&#123;{display: shouldShow}&#125;>hi</div&gt;
+      &lt;div style=&#123;{display: shouldShow}&#125;&gt;hi&lt;/div&gt;
     </td>
     <td>
       &lt;div ng-show="shouldShow" /&gt;
@@ -106,14 +115,14 @@ title: Front-end Hyperpolyglot
       &lt;Child foo='{"serialized": "object"}' /&gt;
     </td>
     <td>
-      &lt;div v-show="shouldShow">hi<div/&gt;
+      &lt;div v-show="shouldShow"&gt;hi&lt;div/&gt;
     </td>
   </tr>
 
   <tr>
     <td>DOM add/remove</td>
     <td>
-      shouldShow ? &lt;div>hi</div&gt; : null
+      shouldShow ? &lt;div&gt;hi&lt;/div&gt; : null
     </td>
     <td>
       &lt;div ng-if="shouldShow" /&gt;
@@ -124,11 +133,17 @@ title: Front-end Hyperpolyglot
       &#123;{/if}&#125;
     </td>
     <td>
-      &lt;div dom-if="shouldShow"></div&gt;
+      &lt;div dom-if="shouldShow"&gt;&lt;/div&gt;
     </td>
     <td>
-      &lt;div v-show="shouldShow">hi<div/&gt;
+      &lt;div v-show="shouldShow"&gt;hi&lt;div/&gt;
     </td>
   </tr>
 
 </table>
+
+      </div>
+    </div>
+
+  </body>
+</html>
