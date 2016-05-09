@@ -32,10 +32,7 @@ title: Front-end Hyperpolyglot
       module.component('component-name', {})
     </td>
     <td>
-      `<script type="text/x-handlebars" id="components/blog-post">`
-        `<h1>Blog Post</h1>`
-        `<p>Lorem ipsum dolor sit amet.</p>`
-      `</script>`
+      Ember.Component.extend({})
     </td>
     <td>
       Polymer({})
@@ -131,4 +128,88 @@ title: Front-end Hyperpolyglot
     </td>
   </tr>
 
+  <!-- prop validation -->
+
+  <tr>
+    <th colspan="6">
+      Component lifecycle methods
+    </th>
+  </tr>
+  <tr>
+    <th></th>
+    <th>React</th>
+    <th>Angular</th>
+    <th>Ember</th>
+    <th>Polymer</th>
+    <th>Vue</th>
+  </tr>
+
+  <tr>
+    <td>Initialized</td>
+    <td>
+      componentWillMount
+    </td>
+    <td>
+      ngOnInit
+    </td>
+    <td>
+      init
+    </td>
+    <td>
+      created
+    </td>
+    <td>
+      created
+    </td>
+  </tr>
+
+  <tr>
+    <td>DOM Ready</td>
+    <td>
+      componentDidMount
+    </td>
+    <td>
+      ngAfterContentInit
+    </td>
+    <td>
+      didRender
+    </td>
+    <td>
+      ready
+    </td>
+    <td>
+      ready
+    </td>
+  </tr>
+
+  <tr>
+    <td>Before destroy</td>
+    <td>
+      componentWillUnmount?
+    </td>
+    <td>
+      ngOnDestroy
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+
+  <tr>
+    <td>After destroy</td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+      destroyed
+    </td>
+  </tr>
 </table>

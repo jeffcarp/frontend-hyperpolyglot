@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Front-end Hyperpolyglot</title>
     <meta name="description" content="">
-    <link rel="stylesheet" href="/hyperpolyglot.css">
+    <link rel="stylesheet" href="hyperpolyglot.css">
   </head>
   <body>
 
@@ -41,10 +41,7 @@
       module.component('component-name', {})
     </td>
     <td>
-      `<script type="text/x-handlebars" id="components/blog-post">`
-        `<h1>Blog Post</h1>`
-        `<p>Lorem ipsum dolor sit amet.</p>`
-      `</script>`
+      Ember.Component.extend({})
     </td>
     <td>
       Polymer({})
@@ -136,10 +133,94 @@
       &lt;div dom-if="shouldShow"&gt;&lt;/div&gt;
     </td>
     <td>
-      &lt;div v-show="shouldShow"&gt;hi&lt;div/&gt;
+      &lt;div v-if="shouldShow"&gt;hi&lt;div/&gt;
     </td>
   </tr>
 
+  <!-- prop validation -->
+
+  <tr>
+    <th colspan="6">
+      Component lifecycle methods
+    </th>
+  </tr>
+  <tr>
+    <th></th>
+    <th>React</th>
+    <th>Angular</th>
+    <th>Ember</th>
+    <th>Polymer</th>
+    <th>Vue</th>
+  </tr>
+
+  <tr>
+    <td>Initialized</td>
+    <td>
+      componentWillMount
+    </td>
+    <td>
+      ngOnInit
+    </td>
+    <td>
+      init
+    </td>
+    <td>
+      created
+    </td>
+    <td>
+      created
+    </td>
+  </tr>
+
+  <tr>
+    <td>DOM Ready</td>
+    <td>
+      componentDidMount
+    </td>
+    <td>
+      ngAfterContentInit
+    </td>
+    <td>
+      didRender
+    </td>
+    <td>
+      ready
+    </td>
+    <td>
+      ready
+    </td>
+  </tr>
+
+  <tr>
+    <td>Before destroy</td>
+    <td>
+      componentWillUnmount?
+    </td>
+    <td>
+      ngOnDestroy
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+
+  <tr>
+    <td>After destroy</td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+      destroyed
+    </td>
+  </tr>
 </table>
 
       </div>
