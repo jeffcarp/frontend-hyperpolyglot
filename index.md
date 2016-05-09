@@ -94,13 +94,11 @@ title: Front-end Hyperpolyglot
       &lt;div style=&#123;{display: shouldShow}&#125;>hi</div&gt;
     </td>
     <td>
-      &lt;div ng-show="shouldShow" /&gt;
+      &lt;div ng-show="shouldShow">hi</div&gt;
     </td>
     <td>
-      &#123;{child foo=bar}&#125;
     </td>
     <td>
-      &lt;Child foo='{"serialized": "object"}' /&gt;
     </td>
     <td>
       &lt;div v-show="shouldShow">hi<div/&gt;
@@ -116,8 +114,8 @@ title: Front-end Hyperpolyglot
       &lt;div ng-if="shouldShow" /&gt;
     </td>
     <td>
-      &#123;{#if shouldShow}&#125;
-        <div>hi</div>
+      &#123;{#if shouldShow}&#125;<br />
+        &lt;div>hi</div&gt;<br />
       &#123;{/if}&#125;
     </td>
     <td>
