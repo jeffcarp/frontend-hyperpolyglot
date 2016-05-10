@@ -166,7 +166,7 @@ title: Front-end Hyperpolyglot
       items.map(item => &lt;div></div&gt;)
     </td>
     <td>
-      &lt;div ng-repeat="item in items"&gt;
+      &lt;div *ngFor="let item of items"&gt;
     </td>
     <td>
     </td>
