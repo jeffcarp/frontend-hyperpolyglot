@@ -75,6 +75,42 @@ title: Front-end Hyperpolyglot
   </tr>
 
   <tr>
+    <td>Passing string literal</td>
+    <td>
+      &lt;Child foo="bar" /&gt;
+    </td>
+    <td>
+      &lt;Child foo="bar" /&gt;
+    </td>
+    <td>
+      &#123;{child foo="bar"}&#125;
+    </td>
+    <td>
+      &lt;Child foo="bar" /&gt;
+    </td>
+    <td>
+      &lt;Child foo="bar" /&gt;
+    </td>
+  </tr>
+
+  <tr>
+    <td>Two-way data binding</td>
+    <td>
+    </td>
+    <td>
+      &lt;input ng-model="foo" /&gt;
+    </td>
+    <td>
+      bar: Ember.computed.alias('parent.foo')
+    </td>
+    <td>
+    </td>
+    <td>
+      &lt;input v-model="foo" /&gt;
+    </td>
+  </tr>
+
+  <tr>
     <th colspan="6">
       Template logic
     </th>
@@ -140,7 +176,25 @@ title: Front-end Hyperpolyglot
       &lt;div v-for="item in items">
     </td>
   </tr>
-  <!-- prop validation -->
+
+  <tr>
+    <td>Bind event handler</td>
+    <td>
+      &lt;div onClick={clicked}&gt;
+    </td>
+    <td>
+      &lt;div ng-click="clicked()"&gt;
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+      &lt;div v-on:click="clicked"&gt;
+    </td>
+  </tr>
+
+  <!-- todo: prop validation -->
 
   <tr>
     <th colspan="6">
