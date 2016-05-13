@@ -1,3 +1,20 @@
+- name: Frameworks
+  comparisons:
+  - label: Version used
+    frameworks:
+      react: 15.0.2
+      angular2: 2.0.0-beta.17
+      angular1: 1.5.5
+      polymer: 1.4.0
+      vue: 1.0.24
+  - label: Language
+    frameworks:
+      react: ES6
+      angular2: TypeScript
+      angular1: ES5
+      polymer: ES6
+      vue: ES6
+
 - name: Components
   comparisons:
   - label: Define Component
@@ -47,6 +64,19 @@
         js: "properties: {}"
       vue:
         js: "props: {}"
+    remarks: |
+      The key in the component configuration object to define the expected type of a passed prop.
+
+      ```
+      class Polyglot extends React.Component {
+        propTypes = {
+          myNumber: React.propTypes.number
+        }
+      }
+      ```
+
+      - **React:** More about [`propTypes` in React](https://facebook.github.io/react/docs/reusable-components.html#prop-validation).
+      - **Polymer:** More about [declared properties in Polymer](https://www.polymer-project.org/1.0/docs/devguide/properties.html).
   - label: Prop validate Number
     frameworks:
       react:

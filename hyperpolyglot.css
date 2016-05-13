@@ -13,7 +13,7 @@ body
 {
 	font-family: verdana,arial,helvetica,sans-serif;
 	font-size: 0.82em;
-        padding: 1em;
+        padding: 1.5em;
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -417,7 +417,8 @@ width: 700px;
 }
 
 table {
-margin-left: 0em;
+  margin-left: 0em;
+  margin-bottom: 5em;
 }
 
 #page-content blockquote {
@@ -503,3 +504,16 @@ font-family: helvetica, arial, san-serif;
 .highlight .vg { color: #B8860B } /* Name.Variable.Global */
 .highlight .vi { color: #B8860B } /* Name.Variable.Instance */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+#remarks h1 {
+  margin-top: 1em;
+}
+#remarks h2 {
+  margin-bottom: 1em;
+}
+#remarks pre {
+  margin-bottom: 1em;
+}
+#remarks ul {
+  margin-left: 1.2em;
+}

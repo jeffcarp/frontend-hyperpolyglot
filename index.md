@@ -10,7 +10,7 @@ _Inspired by [hyperpolyglot.org](http://hyperpolyglot.org/), a comparison of sim
 <table class="wiki-content-table">
   {% for category in site.data.frameworks %}
     <tr>
-      <th colspan="6">{{ category.name }}</th>
+      <th colspan="6" id="{{ category.name | slugify }}"><a href="#{{ category.name | slugify }}-note">{{ category.name }}</a></th>
     </tr>
     <tr>
       <th></th>
@@ -22,7 +22,7 @@ _Inspired by [hyperpolyglot.org](http://hyperpolyglot.org/), a comparison of sim
     </tr>
     {% for comparison in category.comparisons %}
       <tr>
-        <td>{{ comparison.label }}</td>
+        <td id="{{ comparison.label | slugify }}"><a href="#{{ comparison.label | slugify }}-note">{{ comparison.label }}</a></td>
         {% for framework in comparison.frameworks %}
           {% if framework[1].js %}
             <td>{% highlight js %}{{ framework[1].js }}{% endhighlight %}</td>
@@ -34,3 +34,15 @@ _Inspired by [hyperpolyglot.org](http://hyperpolyglot.org/), a comparison of sim
     {% endfor %}
   {% endfor %}
 </table>
+
+<div id="remarks">
+{% for category in site.data.frameworks %}
+  <h1 id="{{ category.name | slugify }}-note"><a href="#{{ category.name | slugify }}">{{ category.name }}</a></h1>
+  {% for comparison in category.comparisons %}
+  {% if comparison.remarks %}
+  <h2 id="{{ comparison.label | slugify }}-note"><a href="#{{ comparison.label | slugify }}">{{ comparison.label }}</a></h2>
+  {{ comparison.remarks | markdownify }}
+  {% endif %}
+  {% endfor %}
+{% endfor %}
+</div>
