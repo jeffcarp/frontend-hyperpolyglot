@@ -37,7 +37,7 @@
       angular1: <input ng-model="foo" />
       polymer:
       vue: <input v-model="foo" />
-  - label: Prop validation
+  - label: Prop validation key
     frameworks:
       react:
         js: "propTypes: {}"
@@ -47,6 +47,37 @@
         js: "properties: {}"
       vue:
         js: "props: {}"
+  - label: Prop validate Number
+    frameworks:
+      react:
+        js: "myNum: React.PropTypes.number"
+      angular2:
+        js: "@Input() myNum: number;"
+      angular1:
+      polymer:
+        js: "myNum: Number"
+      vue:
+        js: "myNum: Number"
+  - label: Prop validate String
+    frameworks:
+      react:
+        js: "myStr: React.PropTypes.string"
+      angular2:
+        js: "@Input() myStr: string;"
+      angular1:
+      polymer:
+        js: "myStr: String"
+      vue:
+        js: "myStr: String"
+  - label: Prop validate union
+    frameworks:
+      react:
+      angular2:
+        js: "@Input() myVar: string | number;"
+      angular1:
+      polymer:
+      vue:
+        js: "myVar: [String, Number]"
 
 - name: Component lifecycle methods
   comparisons:
