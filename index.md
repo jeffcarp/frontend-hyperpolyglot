@@ -9,9 +9,11 @@ _Inspired by [hyperpolyglot.org](http://hyperpolyglot.org/), a comparison of sim
 
 <table class="wiki-content-table">
   {% for category in site.data.frameworks %}
+    {% if category.name %}
     <tr>
       <th colspan="6" id="{{ category.name | slugify }}"><a href="#{{ category.name | slugify }}-note">{{ category.name }}</a></th>
     </tr>
+    {% endif %}
     <tr>
       <th></th>
       <th>React</th>
@@ -36,6 +38,9 @@ _Inspired by [hyperpolyglot.org](http://hyperpolyglot.org/), a comparison of sim
 </table>
 
 <div id="remarks">
+
+<p>The above data is nowhere near complete, any contributors who are more familiar with these languages would be appreciated. The source is on <a href="https://github.com/jeffcarp/frontend-hyperpolyglot">GitHub</a>.</p>
+
 {% for category in site.data.frameworks %}
   <h1 id="{{ category.name | slugify }}-note"><a href="#{{ category.name | slugify }}">{{ category.name }}</a></h1>
   {% for comparison in category.comparisons %}

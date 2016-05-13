@@ -1,4 +1,4 @@
-- name: Frameworks
+- name:
   comparisons:
   - label: Version used
     frameworks:
@@ -7,7 +7,7 @@
       angular1: 1.5.5
       polymer: 1.4.0
       vue: 1.0.24
-  - label: Language
+  - label: Language used
     frameworks:
       react: ES6
       angular2: TypeScript
@@ -57,13 +57,13 @@
   - label: Prop validation key
     frameworks:
       react:
-        js: "propTypes: {}"
+        js: "{propTypes: {}}"
       angular2:
       angular1:
       polymer:
-        js: "properties: {}"
+        js: "{properties: {}}"
       vue:
-        js: "props: {}"
+        js: "{props: {}}"
     remarks: |
       The key in the component configuration object to define the expected type of a passed prop.
 
@@ -75,39 +75,40 @@
       }
       ```
 
-      - **React:** More about [`propTypes` in React](https://facebook.github.io/react/docs/reusable-components.html#prop-validation).
-      - **Polymer:** More about [declared properties in Polymer](https://www.polymer-project.org/1.0/docs/devguide/properties.html).
+      - **React:** Learn more about [`propTypes` in React](https://facebook.github.io/react/docs/reusable-components.html#prop-validation).
+      - **Polymer:** Learn more about [declared properties in Polymer](https://www.polymer-project.org/1.0/docs/devguide/properties.html).
   - label: Prop validate Number
     frameworks:
       react:
-        js: "myNum: React.PropTypes.number"
+        js: "{myNum: React.PropTypes.number}"
       angular2:
         js: "@Input() myNum: number;"
       angular1:
       polymer:
-        js: "myNum: Number"
+        js: "{myNum: Number}"
       vue:
-        js: "myNum: Number"
+        js: "{myNum: Number}"
   - label: Prop validate String
     frameworks:
       react:
-        js: "myStr: React.PropTypes.string"
+        js: "{myStr: React.PropTypes.string}"
       angular2:
         js: "@Input() myStr: string;"
       angular1:
       polymer:
-        js: "myStr: String"
+        js: "{myStr: String}"
       vue:
-        js: "myStr: String"
+        js: "{myStr: String}"
   - label: Prop validate union
     frameworks:
       react:
+        js: "{myVar: React.PropTypes.oneOfType([\n  React.PropTypes.string, \n  React.PropTypes.number\n])}"
       angular2:
         js: "@Input() myVar: string | number;"
       angular1:
       polymer:
       vue:
-        js: "myVar: [String, Number]"
+        js: "{myVar: [String, Number]}"
 
 - name: Component lifecycle methods
   comparisons:
