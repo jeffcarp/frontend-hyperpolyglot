@@ -2,72 +2,95 @@
   comparisons:
   - label: Define Component
     frameworks:
-      react: class Polyglot extends React.Component
-      angular2: "@Component({})class Polyglot {}"
-      angular1: module.component('polyglot', {})
-      polymer: class Polyglot extends HTMLElement
-      vue: class Polyglot extends Vue
+      react:
+        js: class Polyglot extends React.Component
+      angular2:
+        js: "@Component({})class Polyglot {}"
+      angular1:
+        js: module.component('polyglot', {})
+      polymer:
+        js: class Polyglot extends HTMLElement
+      vue:
+        js: class Polyglot extends Vue
 
 - name: Component communication
   comparisons:
   - label: One-way data binding
     frameworks:
       react: <Child foo={bar} />
-      angular: <Child foo='scope.bar' />
-      ember: "{{child foo=bar}}"
-      polymer: "<Child foo='{\"serialized\": \"object\"}' />"
+      angular2: <Child [foo]="bar" />
+      angular1: <Child foo='scope.bar' />
+      polymer: '<Child foo="{{ bar }}" />'
       vue: <Child :foo='bar' />
   - label: String literal prop
     frameworks:
       react: <Child foo='bar' />
-      angular: <Child foo='bar' />
-      ember: "{{child foo='bar'}}"
+      angular2: <Child foo='bar' />
+      angular1: <Child foo='bar' />
       polymer: <Child foo='bar' />
       vue: <Child foo='bar' />
   - label: Two-way data binding
     frameworks:
-      react: (not supported)
-      angular: <input ng-model="foo" />
-      ember: Ember.computed.alias('parent.foo')
-      polymer: <Child foo='bar' />
+      react:
+        js: // not supported
+      angular2: <Child [(foo)]="bar" />
+      angular1: <input ng-model="foo" />
+      polymer:
       vue: <input v-model="foo" />
   - label: Prop validation
     frameworks:
-      react: "propTypes:"
-      angular:
-      ember:
+      react:
+        js: "propTypes: {}"
+      angular2:
+      angular1:
       polymer:
-      vue: "props:"
+        js: "properties: {}"
+      vue:
+        js: "props: {}"
 
 - name: Component lifecycle methods
   comparisons:
   - label: Initialized
     frameworks:
       react: componentWillMount
-      angular: ngOnInit
-      ember: init
+      angular2: ngOnInit
+      angular1: $onInit()
       polymer: created
       vue: created
   - label: DOM Ready
     frameworks:
       react: componentDidMount
-      angular: ngAfterContentInit
-      ember: didRender
+      angular2: ngAfterContentInit
+      angular1: $postLink
       polymer: ready
       vue: ready
-  - label: Before destroy
+  - label: On prop change
     frameworks:
-      react: componentWillUnmount?
-      angular: ngOnDestroy
-      ember:
+      react: willReceiveProps
+      angular2: ngOnChanges
+      angular1: $onChanges
+      polymer: attributeChanged
+      vue:
+  - label: Component updated
+    frameworks:
+      react: componentDidUpdate
+      angular2:
+      angular1:
       polymer:
       vue:
+  - label: Before destroy
+    frameworks:
+      react: componentWillUnmount
+      angular2:
+      angular1:
+      polymer:
+      vue: beforeDestroy
   - label: After destroy
     frameworks:
       react:
-      angular:
-      ember:
-      polymer:
+      angular2: ngOnDestroy
+      angular1: $onDestroy
+      polymer: detatched
       vue: destroyed
 
 - name: Templating logic
@@ -75,28 +98,28 @@
   - label: CSS show/hide
     frameworks:
       react: "<div style={{display: shouldShow}}>hi</div>"
-      angular: <div ng-show='shouldShow'></div>
-      ember:
+      angular2: <div [style.display]="shouldShow"></div>
+      angular1: <div ng-show='shouldShow'></div>
       polymer:
       vue: <div v-show='shouldShow'><div>
   - label: DOM add/remove
     frameworks:
       react: "shouldShow ? <div></div> : null"
-      angular: <div ng-if='shouldShow'></div>
-      ember: "{{#if shouldShow}}<div></div>{{/if}}"
+      angular2: <div *ngIf="shouldShow"></div>
+      angular1: <div ng-if='shouldShow'></div>
       polymer: <div dom-if='shouldShow'><div>
       vue: <div v-if='shouldShow'><div>
   - label: Repeat
     frameworks:
       react: items.map(item => <div></div>)
-      angular: <div *ngFor="let item of items"></div>
-      ember:
+      angular2: <div *ngFor="let item of items"></div>
+      angular1:
       polymer:
       vue: <div v-for="item in items"></div>
   - label: Bind event handler
     frameworks:
       react: <div onClick={clicked}></div>
-      angular: <div ng-click="clicked()"></div>
-      ember:
+      angular2: <button (click)="clicked()">
+      angular1: <div ng-click="clicked()"></div>
       polymer:
       vue: <div v-on:click="clicked"></div>

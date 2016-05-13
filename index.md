@@ -24,9 +24,11 @@ _Inspired by [hyperpolyglot.org](http://hyperpolyglot.org/), a comparison of sim
       <tr>
         <td>{{ comparison.label }}</td>
         {% for framework in comparison.frameworks %}
-          <td>
-            {{ framework[1] |  escape }}
-          </td>
+          {% if framework[1].js %}
+            <td>{% highlight js %}{{ framework[1].js }}{% endhighlight %}</td>
+          {% else %}
+            <td>{% highlight html %}{{ framework[1] }}{% endhighlight %}</td>
+          {% endif %}
         {% endfor %}
       </tr>
     {% endfor %}
