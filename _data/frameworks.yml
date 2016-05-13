@@ -29,6 +29,9 @@
         js: class Polyglot extends HTMLElement
       vue:
         js: class Polyglot extends Vue
+    remarks: |
+      - **Polymer:** See [Building web components using ES6 classes](https://www.polymer-project.org/1.0/articles/es6.html)
+      - **Vue:** See gist: [Vue.js + ES6](https://gist.github.com/k33g/f4ea54b6a2cf9555b959)
 
 - name: Component communication
   comparisons:
@@ -39,6 +42,8 @@
       angular1: <Child foo='scope.bar' />
       polymer: '<Child foo="{{ bar }}" />'
       vue: <Child :foo='bar' />
+    remarks: |
+      - **Polymer:** Learn more about [data binding in Polymer](https://www.polymer-project.org/1.0/docs/devguide/data-binding.html).
   - label: String literal prop
     frameworks:
       react: <Child foo='bar' />
@@ -77,6 +82,7 @@
 
       - **React:** Learn more about [`propTypes` in React](https://facebook.github.io/react/docs/reusable-components.html#prop-validation).
       - **Polymer:** Learn more about [declared properties in Polymer](https://www.polymer-project.org/1.0/docs/devguide/properties.html).
+      - **Vue:** Learn more about [prop validation in Vue](https://vuejs.org/guide/components.html#Prop-Validation).
   - label: Prop validate Number
     frameworks:
       react:
@@ -109,6 +115,8 @@
       polymer:
       vue:
         js: "{myVar: [String, Number]}"
+    remarks: |
+      - **Angular 2:** [Advanced Types in TypeScript](https://www.typescriptlang.org/docs/handbook/advanced-types.html)
 
 - name: Component lifecycle methods
   comparisons:
@@ -119,6 +127,9 @@
       angular1: $onInit()
       polymer: created
       vue: created
+    remarks: |
+      - **React:** [`componentWillMount`](https://facebook.github.io/react/docs/component-specs.html#mounting-componentwillmount)
+      - **Angular 1:** See [https://docs.angularjs.org/guide/component#component-based-application-architecture](https://docs.angularjs.org/guide/component#component-based-application-architecture).
   - label: DOM Ready
     frameworks:
       react: componentDidMount
@@ -126,6 +137,8 @@
       angular1: $postLink
       polymer: ready
       vue: ready
+    remarks: |
+      - **React:** [`componentDidMount`](https://facebook.github.io/react/docs/component-specs.html#mounting-componentdidmount)
   - label: On prop change
     frameworks:
       react: willReceiveProps
@@ -133,6 +146,8 @@
       angular1: $onChanges
       polymer: attributeChanged
       vue:
+    remarks: |
+      - **React:** [`willReceiveProps`](https://facebook.github.io/react/docs/component-specs.html#mounting-willreceiveprops)
   - label: Component updated
     frameworks:
       react: componentDidUpdate
@@ -140,6 +155,8 @@
       angular1:
       polymer:
       vue:
+    remarks: |
+      - **React:** [`componentDidUpdate`](https://facebook.github.io/react/docs/component-specs.html#mounting-componentdidupdate)
   - label: Before destroy
     frameworks:
       react: componentWillUnmount
@@ -147,6 +164,8 @@
       angular1:
       polymer:
       vue: beforeDestroy
+    remarks: |
+      - **React:** [`componentWillUnmount`](https://facebook.github.io/react/docs/component-specs.html#mounting-componentwillunmount)
   - label: After destroy
     frameworks:
       react:
@@ -154,6 +173,8 @@
       angular1: $onDestroy
       polymer: detatched
       vue: destroyed
+    remarks: |
+      - **React** has no `componentDidUnmount` method. See [ReactClass.js#L274](https://github.com/facebook/react/blob/ba9b985406ff56c2dea192b119328b6096895097/src/isomorphic/classic/class/ReactClass.js#L274).
 
 - name: Templating logic
   comparisons:
@@ -171,6 +192,8 @@
       angular1: <div ng-if='shouldShow'></div>
       polymer: <div dom-if='shouldShow'><div>
       vue: <div v-if='shouldShow'><div>
+    remarks: |
+      - **Angular 2:** See [Angular Cheat Sheet](https://angular.io/docs/ts/latest/guide/cheatsheet.html).
   - label: Repeat
     frameworks:
       react: items.map(item => <div></div>)
