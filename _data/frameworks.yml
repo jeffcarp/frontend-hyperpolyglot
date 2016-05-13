@@ -2,11 +2,11 @@
   comparisons:
   - label: Define Component
     frameworks:
-      react: class Component extends React.Component
-      angular: module.component('component-name', {})
-      ember: Ember.Component.extend({})
-      polymer: Polymer({})
-      vue: Vue.extend({})
+      react: class Polyglot extends React.Component
+      angular2: "@Component({})class Polyglot {}"
+      angular1: module.component('polyglot', {})
+      polymer: class Polyglot extends HTMLElement
+      vue: class Polyglot extends Vue
 
 - name: Component communication
   comparisons:

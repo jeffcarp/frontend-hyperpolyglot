@@ -13,6 +13,7 @@ body
 {
 	font-family: verdana,arial,helvetica,sans-serif;
 	font-size: 0.82em;
+        padding: 1em;
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -22,6 +23,7 @@ h1,h2,h3,h4,h5,h6{
 h1{
 	font-size: 190%;
 	font-weight: normal;
+        padding-bottom: 1em;
 }
 h2{
 	font-weight: normal;
@@ -167,6 +169,10 @@ tt{
 
 pre{
 	font-family: 'Andale Mono', 'Courier New', Courier, monospace;
+}
+
+p {
+        margin-bottom: 1em;
 }
 
 .code { 

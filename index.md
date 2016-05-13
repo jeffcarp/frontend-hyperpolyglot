@@ -3,9 +3,11 @@ layout: default
 title: Front-end Hyperpolyglot
 ---
 
-# frontend-hyperpolyglot
+# [Front-end Hyperpolylglot](http://jeffcarp.github.io/frontend-hyperpolyglot/)
 
-<table>
+_Inspired by [hyperpolyglot.org](http://hyperpolyglot.org/), a comparison of similar features in popular JavaScript frameworks._
+
+<table class="wiki-content-table">
   {% for category in site.data.frameworks %}
     <tr>
       <th colspan="6">{{ category.name }}</th>
@@ -13,8 +15,8 @@ title: Front-end Hyperpolyglot
     <tr>
       <th></th>
       <th>React</th>
-      <th>Angular</th>
-      <th>Ember</th>
+      <th>Angular 2</th>
+      <th>Angular 1</th>
       <th>Polymer</th>
       <th>Vue</th>
     </tr>
