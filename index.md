@@ -39,7 +39,7 @@ _Inspired by [hyperpolyglot.org](http://hyperpolyglot.org/), a comparison of sim
 
 <div id="remarks">
 
-<p>The above data is nowhere near complete, any contributors who are more familiar with these languages would be appreciated. The source is on <a href="https://github.com/jeffcarp/frontend-hyperpolyglot">GitHub</a>.</p>
+<p>The above data is nowhere near complete, any contributors who are more familiar with these frameworks would be massively appreciated. The source is on <a href="https://github.com/jeffcarp/frontend-hyperpolyglot">GitHub</a>.</p>
 
 {% for category in site.data.frameworks %}
   <h1 id="{{ category.name | slugify }}-note"><a href="#{{ category.name | slugify }}">{{ category.name }}</a></h1>
