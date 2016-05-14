@@ -202,7 +202,7 @@
       - **Vue:** See [Filters](https://vuejs.org/guide/syntax.html#Filters)
   - label: Transform with arguments
     frameworks:
-      react:
+      react: <div>{filter(message, 'arg1', arg2)}</div>
       angular2: "<div>{{ message | filter:'arg1':arg2 }}</div>"
       angular1: "<div>{{ message | filter:'arg1':arg2 }}</div>"
       polymer:
