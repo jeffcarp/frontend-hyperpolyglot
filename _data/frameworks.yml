@@ -59,11 +59,15 @@
       angular1: <input ng-model="foo" />
       polymer:
       vue: <input v-model="foo" />
+
+- name: Property validation
+  comparisons:
   - label: Prop validation key
     frameworks:
       react:
         js: "{propTypes: {}}"
       angular2:
+        js: // as types on @Input properties
       angular1:
       polymer:
         js: "{properties: {}}"
@@ -178,13 +182,20 @@
 
 - name: Templating logic
   comparisons:
-  - label: CSS show/hide
+  - label: Text interpolation
     frameworks:
-      react: "<div style={{display: shouldShow}}>hi</div>"
-      angular2: <div [style.display]="shouldShow"></div>
-      angular1: <div ng-show='shouldShow'></div>
+      react: <div>{message}</div>
+      angular2:
+      angular1: <div>{{message}}</div>
       polymer:
-      vue: <div v-show='shouldShow'><div>
+      vue: <div>{{message}}</div>
+  - label: Dangerous raw HTML output
+    frameworks:
+      react: "<div dangerouslySetInnerHTML={{__html: raw_html }} />"
+      angular2: <div [innerHTML]="raw_html"></div>
+      angular1: <div ng-bind-html="raw_html"></div>
+      polymer:
+      vue: <div>{{{ raw_html }}}</div>
   - label: DOM add/remove
     frameworks:
       react: "shouldShow ? <div></div> : null"
