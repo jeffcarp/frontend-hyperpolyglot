@@ -186,9 +186,31 @@
     frameworks:
       react: <div>{message}</div>
       angular2:
-      angular1: <div>{{message}}</div>
+      angular1: <div>{{ message }}</div>
       polymer:
-      vue: <div>{{message}}</div>
+      vue: <div>{{ message }}</div>
+  - label: Transform interpolation
+    frameworks:
+      react: <div>{filter(message)}</div>
+      angular2: <div>{{ message | filter }}</div>
+      angular1: <div>{{ message | filter }}</div>
+      polymer:
+      vue: <div>{{ message | filter }}</div>
+    remarks: |
+      **React** doesn't have the concept of 'filters' or 'pipes', but you can use a simple function to acheive the same result.
+
+      - **Vue:** See [Filters](https://vuejs.org/guide/syntax.html#Filters)
+  - label: Transform with arguments
+    frameworks:
+      react:
+      angular2: "<div>{{ message | filter:'arg1':arg2 }}</div>"
+      angular1: "<div>{{ message | filter:'arg1':arg2 }}</div>"
+      polymer:
+      vue: <div>{{ message | filter 'arg1' arg2 }}</div>
+    remarks: |
+      - **Angular 2:** See [Pipes](https://angular.io/docs/ts/latest/guide/pipes.html)
+      - **Angular 1:** See [Filter](https://docs.angularjs.org/api/ng/filter/filter)
+      - **Vue:** See [Filters](https://vuejs.org/guide/syntax.html#Filters)
   - label: Dangerous raw HTML output
     frameworks:
       react: "<div dangerouslySetInnerHTML={{__html: raw_html }} />"
@@ -196,6 +218,21 @@
       angular1: <div ng-bind-html="raw_html"></div>
       polymer:
       vue: <div>{{{ raw_html }}}</div>
+    remarks: |
+      Please don't use these in your programs. Filtering raw HTML on the server or in the browser will not protect you 100% against XSS. For a deeper look at the subject, please refer to the [Google Browser Security Handbook (PDF download)](https://storage.googleapis.com/google-code-attachments/browsersec/issue-8/comment-8/Google%20Browser%20Security%20Handbook.pdf) and the book [The Tangled Web: A Guide to Securing Modern Web Applications](http://lcamtuf.coredump.cx/tangled/).
+
+      - **React:** See [Dangerously Set innerHTML](https://facebook.github.io/react/tips/dangerously-set-inner-html.html).
+      - **Vue:** See [Raw HTML](https://vuejs.org/guide/syntax.html#Raw-HTML).
+  - label: Bind attribute value
+    frameworks:
+      react: <div id={'item-' + id}></div>
+      angular2: <div id="item-{{ id }}"></div>
+      angular1: <div id="item-{{ id }}"></div>
+      polymer:
+      vue: <div id="item-{{ id }}"></div>
+    remarks: |
+      - **Angular 2:** See [Attribute, class, and style bindings](https://angular.io/docs/ts/latest/guide/template-syntax.html#!#attribute-class-and-style-bindings)
+      - **Vue:** See [Attributes](https://vuejs.org/guide/syntax.html#Attributes)
   - label: DOM add/remove
     frameworks:
       react: "shouldShow ? <div></div> : null"
