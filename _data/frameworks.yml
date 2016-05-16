@@ -54,7 +54,7 @@
   - label: Two-way data binding
     frameworks:
       react:
-        js: // not supported
+        comment: not supported
       angular2: <Child [(foo)]="bar" />
       angular1: <input ng-model="foo" />
       polymer:
@@ -67,8 +67,9 @@
       react:
         js: "{propTypes: {}}"
       angular2:
-        js: // as types on @Input properties
+        comment: as types on @Input properties (below)
       angular1:
+        comment: (no prop types)
       polymer:
         js: "{properties: {}}"
       vue:
@@ -85,6 +86,7 @@
       ```
 
       - **React:** Learn more about [`propTypes` in React](https://facebook.github.io/react/docs/reusable-components.html#prop-validation).
+      - **Angular 2:** Learn more about [Basic Types](https://www.typescriptlang.org/docs/handbook/basic-types.html) in TypeScript.
       - **Polymer:** Learn more about [declared properties in Polymer](https://www.polymer-project.org/1.0/docs/devguide/properties.html).
       - **Vue:** Learn more about [prop validation in Vue](https://vuejs.org/guide/components.html#Prop-Validation).
   - label: Prop validate Number
@@ -94,6 +96,7 @@
       angular2:
         js: "@Input() myNum: number;"
       angular1:
+        comment: (no prop types)
       polymer:
         js: "{myNum: Number}"
       vue:
@@ -105,10 +108,59 @@
       angular2:
         js: "@Input() myStr: string;"
       angular1:
+        comment: (no prop types)
       polymer:
         js: "{myStr: String}"
       vue:
         js: "{myStr: String}"
+  - label: Prop validate Array
+    frameworks:
+      react:
+        js: "{myArr: React.PropTypes.array}"
+      angular2:
+        js: "@Input() myArr: Array;"
+      angular1:
+        comment: (no prop types)
+      polymer:
+        js: "{myArr: Array}"
+      vue:
+        js: "{myArr: Array}"
+  - label: Prop validate Boolean
+    frameworks:
+      react:
+        js: "{myBool: React.PropTypes.bool}"
+      angular2:
+        js: "@Input() myBool: boolean;"
+      angular1:
+        comment: (no prop types)
+      polymer:
+        js: "{myBool: Boolean}"
+      vue:
+        js: "{myBool: Boolean}"
+  - label: Prop validate Function
+    frameworks:
+      react:
+        js: "{myFunc: React.PropTypes.func}"
+      angular2:
+        js: "@Input() myFunc: Function;"
+      angular1:
+        comment: (no prop types)
+      polymer:
+        comment: not supported
+      vue:
+        comment: not supported
+  - label: Prop validate Object
+    frameworks:
+      react:
+        js: "{myObj: React.PropTypes.object}"
+      angular2:
+        js: "@Input() myObj: Object;"
+      angular1:
+        comment: (no prop types)
+      polymer:
+        js: "{myObj: Object}"
+      vue:
+        js: "{myObj: Object}"
   - label: Prop validate union
     frameworks:
       react:
@@ -116,6 +168,7 @@
       angular2:
         js: "@Input() myVar: string | number;"
       angular1:
+        comment: (no prop types)
       polymer:
       vue:
         js: "{myVar: [String, Number]}"
