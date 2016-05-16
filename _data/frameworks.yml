@@ -151,14 +151,26 @@
       angular1: <Child foo='bar' />
       polymer: <Child foo='bar' />
       vue: <Child foo='bar' />
-  - label: Two-way data binding
+  - label: Two-way binding (native)
+    frameworks:
+      react:
+        comment: not supported
+      angular2: <input [(ngModel)]="foo" />
+      angular1: <input ng-model="foo" />
+      polymer: <input value="{{foo::input}}">
+      vue: <input v-model="foo" />
+    remarks: |
+      - **Polymer:** See [Two-way binding to native elements](https://www.polymer-project.org/1.0/docs/devguide/data-binding.html#two-way-native).
+  - label: Two-way binding (components)
     frameworks:
       react:
         comment: not supported
       angular2: <Child [(foo)]="bar" />
-      angular1: <input ng-model="foo" />
-      polymer:
-      vue: <input v-model="foo" />
+      angular1:
+      polymer: "<Child foo='{{ bar }}' />\n<!-- and set notify: true -->"
+      vue:
+    remarks: |
+      - **Polymer:** See [Property change notification and two-way binding](https://www.polymer-project.org/1.0/docs/devguide/data-binding.html#property-notification).
 
 - name: Property validation
   comparisons:
