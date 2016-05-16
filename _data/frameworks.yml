@@ -194,10 +194,12 @@
   - label: Text interpolation
     frameworks:
       react: <div>{message}</div>
-      angular2:
+      angular2: <div>{{ message }}</div>
       angular1: <div>{{ message }}</div>
-      polymer:
+      polymer: <div>{{ message }}</div>
       vue: <div>{{ message }}</div>
+    remarks: |
+      - **Polymer:** see [Binding to text content](https://www.polymer-project.org/1.0/docs/devguide/data-binding.html#binding-to-text-content).
   - label: Transform interpolation
     frameworks:
       react: <div>{filter(message)}</div>
@@ -220,6 +222,27 @@
       - **Angular 2:** See [Pipes](https://angular.io/docs/ts/latest/guide/pipes.html)
       - **Angular 1:** See [Filter](https://docs.angularjs.org/api/ng/filter/filter)
       - **Vue:** See [Filters](https://vuejs.org/guide/syntax.html#Filters)
+  - label: Bind text content
+    frameworks:
+      react: <div textContent={message}></div>
+      angular2: <div [textContent]="message"></div>
+      angular1: <div ng-bind="message"></div>
+      polymer:
+      vue: <div v-text="message"></div>
+    remarks: |
+      - **Angular 1:** See [`ngBind`](https://docs.angularjs.org/api/ng/directive/ngBind)
+  - label: Bind href
+    frameworks:
+      react: <a href={ url }></a>
+      angular2: <a [href]="url"></a>
+      angular1: <a ng-href="{{ url }}"></a>
+      polymer: <a href$="{{ url }}"></a>
+      vue: <a v-bind:href="url"></a>
+    remarks: |
+      - **Angular 2:** See [bind to the `href` property](https://angular.io/docs/ts/latest/cookbook/a1-a2-quick-reference.html#!#bind-to-the-href-property).
+      - **Angular 1:** See [`ngHref`](https://docs.angularjs.org/api/ng/directive/ngHref).
+      - **Polymer:** See [Binding to native element attributes](https://www.polymer-project.org/1.0/docs/devguide/data-binding.html#native-binding).
+      - **Vue:** See [Directives > Arguments](https://vuejs.org/guide/syntax.html#Arguments).
   - label: Dangerous raw HTML output
     frameworks:
       react: "<div dangerouslySetInnerHTML={{__html: raw_html }} />"
