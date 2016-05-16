@@ -15,6 +15,106 @@
       polymer: ES6
       vue: ES6
 
+- name: Templating logic
+  comparisons:
+  - label: Text interpolation
+    frameworks:
+      react: <div>{message}</div>
+      angular2: <div>{{ message }}</div>
+      angular1: <div>{{ message }}</div>
+      polymer: <div>{{ message }}</div>
+      vue: <div>{{ message }}</div>
+    remarks: |
+      - **Polymer:** see [Binding to text content](https://www.polymer-project.org/1.0/docs/devguide/data-binding.html#binding-to-text-content).
+  - label: Transform interpolation
+    frameworks:
+      react: <div>{filter(message)}</div>
+      angular2: <div>{{ message | filter }}</div>
+      angular1: <div>{{ message | filter }}</div>
+      polymer:
+      vue: <div>{{ message | filter }}</div>
+    remarks: |
+      **React** doesn't have the concept of 'filters' or 'pipes', but you can use a simple function to acheive the same result.
+
+      - **Vue:** See [Filters](https://vuejs.org/guide/syntax.html#Filters)
+  - label: Transform with arguments
+    frameworks:
+      react: <div>{filter(message, 'arg1', arg2)}</div>
+      angular2: "<div>{{ message | filter:'arg1':arg2 }}</div>"
+      angular1: "<div>{{ message | filter:'arg1':arg2 }}</div>"
+      polymer:
+      vue: <div>{{ message | filter 'arg1' arg2 }}</div>
+    remarks: |
+      - **Angular 2:** See [Pipes](https://angular.io/docs/ts/latest/guide/pipes.html)
+      - **Angular 1:** See [Filter](https://docs.angularjs.org/api/ng/filter/filter)
+      - **Vue:** See [Filters](https://vuejs.org/guide/syntax.html#Filters)
+  - label: Bind text content
+    frameworks:
+      react: <div textContent={message}></div>
+      angular2: <div [textContent]="message"></div>
+      angular1: <div ng-bind="message"></div>
+      polymer:
+      vue: <div v-text="message"></div>
+    remarks: |
+      - **Angular 1:** See [`ngBind`](https://docs.angularjs.org/api/ng/directive/ngBind)
+  - label: Bind href
+    frameworks:
+      react: <a href={ url }></a>
+      angular2: <a [href]="url"></a>
+      angular1: <a ng-href="{{ url }}"></a>
+      polymer: <a href$="{{ url }}"></a>
+      vue: <a v-bind:href="url"></a>
+    remarks: |
+      - **Angular 2:** See [bind to the `href` property](https://angular.io/docs/ts/latest/cookbook/a1-a2-quick-reference.html#!#bind-to-the-href-property).
+      - **Angular 1:** See [`ngHref`](https://docs.angularjs.org/api/ng/directive/ngHref).
+      - **Polymer:** See [Binding to native element attributes](https://www.polymer-project.org/1.0/docs/devguide/data-binding.html#native-binding).
+      - **Vue:** See [Directives > Arguments](https://vuejs.org/guide/syntax.html#Arguments).
+  - label: Dangerous raw HTML output
+    frameworks:
+      react: "<div dangerouslySetInnerHTML={{__html: raw_html }} />"
+      angular2: <div [innerHTML]="raw_html"></div>
+      angular1: <div ng-bind-html="raw_html"></div>
+      polymer:
+      vue: <div>{{{ raw_html }}}</div>
+    remarks: |
+      Please don't use these in your programs. Filtering raw HTML on the server or in the browser will not protect you 100% against XSS. For a deeper look at the subject, please refer to the [Google Browser Security Handbook (PDF download)](https://storage.googleapis.com/google-code-attachments/browsersec/issue-8/comment-8/Google%20Browser%20Security%20Handbook.pdf) and the book [The Tangled Web: A Guide to Securing Modern Web Applications](http://lcamtuf.coredump.cx/tangled/).
+
+      - **React:** See [Dangerously Set innerHTML](https://facebook.github.io/react/tips/dangerously-set-inner-html.html).
+      - **Vue:** See [Raw HTML](https://vuejs.org/guide/syntax.html#Raw-HTML).
+  - label: Bind attribute value
+    frameworks:
+      react: <div id={'item-' + id}></div>
+      angular2: <div id="item-{{ id }}"></div>
+      angular1: <div id="item-{{ id }}"></div>
+      polymer:
+      vue: <div id="item-{{ id }}"></div>
+    remarks: |
+      - **Angular 2:** See [Attribute, class, and style bindings](https://angular.io/docs/ts/latest/guide/template-syntax.html#!#attribute-class-and-style-bindings)
+      - **Vue:** See [Attributes](https://vuejs.org/guide/syntax.html#Attributes)
+  - label: DOM add/remove
+    frameworks:
+      react: "shouldShow ? <div></div> : null"
+      angular2: <div *ngIf="shouldShow"></div>
+      angular1: <div ng-if='shouldShow'></div>
+      polymer: <div dom-if='shouldShow'><div>
+      vue: <div v-if='shouldShow'><div>
+    remarks: |
+      - **Angular 2:** See [Angular Cheat Sheet](https://angular.io/docs/ts/latest/guide/cheatsheet.html).
+  - label: Repeat
+    frameworks:
+      react: items.map(item => <div></div>)
+      angular2: <div *ngFor="let item of items"></div>
+      angular1:
+      polymer:
+      vue: <div v-for="item in items"></div>
+  - label: Bind event handler
+    frameworks:
+      react: <div onClick={clicked}></div>
+      angular2: <button (click)="clicked()">
+      angular1: <div ng-click="clicked()"></div>
+      polymer:
+      vue: <div v-on:click="clicked"></div>
+
 - name: Components
   comparisons:
   - label: Define Component
@@ -241,103 +341,3 @@
       vue: destroyed
     remarks: |
       - **React** has no `componentDidUnmount` method. See [ReactClass.js#L274](https://github.com/facebook/react/blob/ba9b985406ff56c2dea192b119328b6096895097/src/isomorphic/classic/class/ReactClass.js#L274).
-
-- name: Templating logic
-  comparisons:
-  - label: Text interpolation
-    frameworks:
-      react: <div>{message}</div>
-      angular2: <div>{{ message }}</div>
-      angular1: <div>{{ message }}</div>
-      polymer: <div>{{ message }}</div>
-      vue: <div>{{ message }}</div>
-    remarks: |
-      - **Polymer:** see [Binding to text content](https://www.polymer-project.org/1.0/docs/devguide/data-binding.html#binding-to-text-content).
-  - label: Transform interpolation
-    frameworks:
-      react: <div>{filter(message)}</div>
-      angular2: <div>{{ message | filter }}</div>
-      angular1: <div>{{ message | filter }}</div>
-      polymer:
-      vue: <div>{{ message | filter }}</div>
-    remarks: |
-      **React** doesn't have the concept of 'filters' or 'pipes', but you can use a simple function to acheive the same result.
-
-      - **Vue:** See [Filters](https://vuejs.org/guide/syntax.html#Filters)
-  - label: Transform with arguments
-    frameworks:
-      react: <div>{filter(message, 'arg1', arg2)}</div>
-      angular2: "<div>{{ message | filter:'arg1':arg2 }}</div>"
-      angular1: "<div>{{ message | filter:'arg1':arg2 }}</div>"
-      polymer:
-      vue: <div>{{ message | filter 'arg1' arg2 }}</div>
-    remarks: |
-      - **Angular 2:** See [Pipes](https://angular.io/docs/ts/latest/guide/pipes.html)
-      - **Angular 1:** See [Filter](https://docs.angularjs.org/api/ng/filter/filter)
-      - **Vue:** See [Filters](https://vuejs.org/guide/syntax.html#Filters)
-  - label: Bind text content
-    frameworks:
-      react: <div textContent={message}></div>
-      angular2: <div [textContent]="message"></div>
-      angular1: <div ng-bind="message"></div>
-      polymer:
-      vue: <div v-text="message"></div>
-    remarks: |
-      - **Angular 1:** See [`ngBind`](https://docs.angularjs.org/api/ng/directive/ngBind)
-  - label: Bind href
-    frameworks:
-      react: <a href={ url }></a>
-      angular2: <a [href]="url"></a>
-      angular1: <a ng-href="{{ url }}"></a>
-      polymer: <a href$="{{ url }}"></a>
-      vue: <a v-bind:href="url"></a>
-    remarks: |
-      - **Angular 2:** See [bind to the `href` property](https://angular.io/docs/ts/latest/cookbook/a1-a2-quick-reference.html#!#bind-to-the-href-property).
-      - **Angular 1:** See [`ngHref`](https://docs.angularjs.org/api/ng/directive/ngHref).
-      - **Polymer:** See [Binding to native element attributes](https://www.polymer-project.org/1.0/docs/devguide/data-binding.html#native-binding).
-      - **Vue:** See [Directives > Arguments](https://vuejs.org/guide/syntax.html#Arguments).
-  - label: Dangerous raw HTML output
-    frameworks:
-      react: "<div dangerouslySetInnerHTML={{__html: raw_html }} />"
-      angular2: <div [innerHTML]="raw_html"></div>
-      angular1: <div ng-bind-html="raw_html"></div>
-      polymer:
-      vue: <div>{{{ raw_html }}}</div>
-    remarks: |
-      Please don't use these in your programs. Filtering raw HTML on the server or in the browser will not protect you 100% against XSS. For a deeper look at the subject, please refer to the [Google Browser Security Handbook (PDF download)](https://storage.googleapis.com/google-code-attachments/browsersec/issue-8/comment-8/Google%20Browser%20Security%20Handbook.pdf) and the book [The Tangled Web: A Guide to Securing Modern Web Applications](http://lcamtuf.coredump.cx/tangled/).
-
-      - **React:** See [Dangerously Set innerHTML](https://facebook.github.io/react/tips/dangerously-set-inner-html.html).
-      - **Vue:** See [Raw HTML](https://vuejs.org/guide/syntax.html#Raw-HTML).
-  - label: Bind attribute value
-    frameworks:
-      react: <div id={'item-' + id}></div>
-      angular2: <div id="item-{{ id }}"></div>
-      angular1: <div id="item-{{ id }}"></div>
-      polymer:
-      vue: <div id="item-{{ id }}"></div>
-    remarks: |
-      - **Angular 2:** See [Attribute, class, and style bindings](https://angular.io/docs/ts/latest/guide/template-syntax.html#!#attribute-class-and-style-bindings)
-      - **Vue:** See [Attributes](https://vuejs.org/guide/syntax.html#Attributes)
-  - label: DOM add/remove
-    frameworks:
-      react: "shouldShow ? <div></div> : null"
-      angular2: <div *ngIf="shouldShow"></div>
-      angular1: <div ng-if='shouldShow'></div>
-      polymer: <div dom-if='shouldShow'><div>
-      vue: <div v-if='shouldShow'><div>
-    remarks: |
-      - **Angular 2:** See [Angular Cheat Sheet](https://angular.io/docs/ts/latest/guide/cheatsheet.html).
-  - label: Repeat
-    frameworks:
-      react: items.map(item => <div></div>)
-      angular2: <div *ngFor="let item of items"></div>
-      angular1:
-      polymer:
-      vue: <div v-for="item in items"></div>
-  - label: Bind event handler
-    frameworks:
-      react: <div onClick={clicked}></div>
-      angular2: <button (click)="clicked()">
-      angular1: <div ng-click="clicked()"></div>
-      polymer:
-      vue: <div v-on:click="clicked"></div>
