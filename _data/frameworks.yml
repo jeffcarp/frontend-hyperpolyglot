@@ -150,29 +150,38 @@
       angular1: $onChanges
       polymer: attributeChanged
       vue:
+        comment: none
     remarks: |
       - **React:** [`willReceiveProps`](https://facebook.github.io/react/docs/component-specs.html#mounting-willreceiveprops)
   - label: Component updated
     frameworks:
       react: componentDidUpdate
       angular2:
+        comment: none
       angular1:
+        comment: none
       polymer:
+        comment: none
       vue:
+        comment: none
     remarks: |
       - **React:** [`componentDidUpdate`](https://facebook.github.io/react/docs/component-specs.html#mounting-componentdidupdate)
   - label: Before destroy
     frameworks:
       react: componentWillUnmount
       angular2:
+        comment: none
       angular1:
+        comment: none
       polymer:
+        comment: none
       vue: beforeDestroy
     remarks: |
       - **React:** [`componentWillUnmount`](https://facebook.github.io/react/docs/component-specs.html#mounting-componentwillunmount)
   - label: After destroy
     frameworks:
       react:
+        comment: none
       angular2: ngOnDestroy
       angular1: $onDestroy
       polymer: detatched

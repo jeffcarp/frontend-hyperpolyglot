@@ -155,6 +155,9 @@ table td{
 	border: 1px solid #888;
 	padding: 0.3em 0.7em;
 }
+table td.faded {
+  color: #aaa;
+}
 table th{
 	border: 0px solid #888;
 	padding: 0.3em 0.7em;

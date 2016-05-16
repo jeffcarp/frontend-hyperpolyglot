@@ -28,6 +28,8 @@ _Inspired by [hyperpolyglot.org](http://hyperpolyglot.org/), a comparison of sim
         {% for framework in comparison.frameworks %}
           {% if framework[1].js %}
             <td>{% highlight js %}{{ framework[1].js }}{% endhighlight %}</td>
+          {% elsif framework[1].comment %}
+            <td class="faded">{{ framework[1].comment }}</td>
           {% else %}
             <td>{% highlight html %}{{ framework[1] }}{% endhighlight %}</td>
           {% endif %}
