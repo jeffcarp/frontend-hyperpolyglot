@@ -31,10 +31,10 @@
       react: <div>{filter(message)}</div>
       angular2: <div>{{ message | filter }}</div>
       angular1: <div>{{ message | filter }}</div>
-      polymer:
+      polymer: <div>{{ filter(message) }}</div>
       vue: <div>{{ message | filter }}</div>
     remarks: |
-      **React** doesn't have the concept of 'filters' or 'pipes', but you can use a simple function to acheive the same result.
+      **React and Polymer** don't have the concept of 'filters' or 'pipes', but you can use a simple function to acheive the same result.
 
       - **Vue:** See [Filters](https://vuejs.org/guide/syntax.html#Filters)
   - label: Transform with arguments
@@ -42,7 +42,7 @@
       react: <div>{filter(message, 'arg1', arg2)}</div>
       angular2: "<div>{{ message | filter:'arg1':arg2 }}</div>"
       angular1: "<div>{{ message | filter:'arg1':arg2 }}</div>"
-      polymer:
+      polymer: <div>{{ filter(message, 'arg1', arg2) }}</div>
       vue: <div>{{ message | filter 'arg1' arg2 }}</div>
     remarks: |
       - **Angular 2:** See [Pipes](https://angular.io/docs/ts/latest/guide/pipes.html)
@@ -53,10 +53,11 @@
       react: <div textContent={message}></div>
       angular2: <div [textContent]="message"></div>
       angular1: <div ng-bind="message"></div>
-      polymer:
+      polymer: <div textContent$="{{ textContent }}"></div>
       vue: <div v-text="message"></div>
     remarks: |
-      - **Angular 1:** See [`ngBind`](https://docs.angularjs.org/api/ng/directive/ngBind)
+      - **Angular 1:** See [`ngBind`](https://docs.angularjs.org/api/ng/directive/ngBind).
+      - **Polymer:** See [Annotated attribute binding](https://docs.angularjs.org/api/ng/directive/ngBin://www.polymer-project.org/1.0/docs/devguide/data-binding.html#attribute-binding.)
   - label: Bind href
     frameworks:
       react: <a href={ url }></a>
@@ -74,7 +75,7 @@
       react: "<div dangerouslySetInnerHTML={{__html: raw_html }} />"
       angular2: <div [innerHTML]="raw_html"></div>
       angular1: <div ng-bind-html="raw_html"></div>
-      polymer:
+      polymer: <div content$="{{ raw_html }}"></div>
       vue: <div>{{{ raw_html }}}</div>
     remarks: |
       Please don't use these in your programs. Filtering raw HTML on the server or in the browser will not protect you 100% against XSS. For a deeper look at the subject, please refer to the [Google Browser Security Handbook (PDF download)](https://storage.googleapis.com/google-code-attachments/browsersec/issue-8/comment-8/Google%20Browser%20Security%20Handbook.pdf) and the book [The Tangled Web: A Guide to Securing Modern Web Applications](http://lcamtuf.coredump.cx/tangled/).
@@ -86,7 +87,7 @@
       react: <div id={'item-' + id}></div>
       angular2: <div id="item-{{ id }}"></div>
       angular1: <div id="item-{{ id }}"></div>
-      polymer:
+      polymer: <div id$="item-{{ id }}"></div>
       vue: <div id="item-{{ id }}"></div>
     remarks: |
       - **Angular 2:** See [Attribute, class, and style bindings](https://angular.io/docs/ts/latest/guide/template-syntax.html#!#attribute-class-and-style-bindings)
@@ -104,20 +105,25 @@
     frameworks:
       react: items.map(item => <div></div>)
       angular2: <div *ngFor="let item of items"></div>
-      angular1:
-      polymer:
+      angular1: <div ng-repeat="item in items"></div>
+      polymer: <template is="dom-repeat" items="{{items}}"></template>
       vue: <div v-for="item in items"></div>
+    remarks: |
+      - **Angular 1:** See [`ngRepeat`](https://docs.angularjs.org/api/ng/directive/ngRepeat).
+      - **Polymer:** See [Template repeater (`dom-repeat`)](https://www.polymer-project.org/1.0/docs/devguide/templates.html#dom-repeat).
   - label: Bind event handler
     frameworks:
-      react: <div onClick={clicked}></div>
+      react: <button onClick={clicked}>
       angular2: <button (click)="clicked()">
-      angular1: <div ng-click="clicked()"></div>
-      polymer:
-      vue: <div v-on:click="clicked"></div>
+      angular1: <button ng-click="clicked()">
+      polymer: <button on-tap="clicked">
+      vue: <button v-on:click="clicked">
+    remarks: |
+      - **Polymer:** See [Annotated event listener setup](https://www.polymer-project.org/1.0/docs/devguide/events.html#annotated-listeners).
 
 - name: Components
   comparisons:
-  - label: Define Component
+  - label: Define component ES6
     frameworks:
       react:
         js: class Polyglot extends React.Component
@@ -129,6 +135,21 @@
         js: class Polyglot extends HTMLElement
       vue:
         js: class Polyglot extends Vue
+    remarks: |
+      - **Polymer:** See [Building web components using ES6 classes](https://www.polymer-project.org/1.0/articles/es6.html)
+      - **Vue:** See gist: [Vue.js + ES6](https://gist.github.com/k33g/f4ea54b6a2cf9555b959)
+  - label: Define component ES5
+    frameworks:
+      react:
+        js: React.createClass({})
+      angular2:
+        js: ng.core.Component({}).Class({})
+      angular1:
+        js: module.component('polyglot', {})
+      polymer:
+        js: Polymer({})
+      vue:
+        js: Vue.extend({})
     remarks: |
       - **Polymer:** See [Building web components using ES6 classes](https://www.polymer-project.org/1.0/articles/es6.html)
       - **Vue:** See gist: [Vue.js + ES6](https://gist.github.com/k33g/f4ea54b6a2cf9555b959)
