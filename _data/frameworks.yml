@@ -94,7 +94,7 @@
       - **Vue:** See [Attributes](https://vuejs.org/guide/syntax.html#Attributes)
   - label: DOM add/remove
     frameworks:
-      react: "shouldShow ? <div></div> : null"
+      react: "{shouldShow && <div></div>}"
       angular2: <div *ngIf="shouldShow"></div>
       angular1: <div ng-if='shouldShow'></div>
       polymer: <div dom-if='shouldShow'><div>
