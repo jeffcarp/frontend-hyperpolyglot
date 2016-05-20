@@ -314,7 +314,7 @@
     frameworks:
       react: componentWillMount
       angular2: ngOnInit
-      angular1: $onInit()
+      angular1: $onInit
       polymer: created
       vue: created
     remarks: |
