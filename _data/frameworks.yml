@@ -57,7 +57,7 @@
       vue: <div v-text="message"></div>
     remarks: |
       - **Angular 1:** See [`ngBind`](https://docs.angularjs.org/api/ng/directive/ngBind).
-      - **Polymer:** See [Annotated attribute binding](https://docs.angularjs.org/api/ng/directive/ngBin://www.polymer-project.org/1.0/docs/devguide/data-binding.html#attribute-binding.)
+      - **Polymer:** See [Annotated attribute binding](https://www.polymer-project.org/1.0/docs/devguide/data-binding.html#attribute-binding.)
   - label: Bind href
     frameworks:
       react: <a href={ url }></a>
