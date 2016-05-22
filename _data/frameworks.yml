@@ -109,7 +109,7 @@
       angular1: <div ng-if='shouldShow'></div>
       polymer: <div dom-if='shouldShow'><div>
       vue: <div v-if='shouldShow'><div>
-      ember: {{#if shouldShow}}<div></div>{{/if}}
+      ember: "{{#if shouldShow}}<div></div>{{/if}}"
     remarks: |
       - **Angular 2:** See [Angular Cheat Sheet](https://angular.io/docs/ts/latest/guide/cheatsheet.html).
   - label: Repeat
@@ -119,7 +119,7 @@
       angular1: <div ng-repeat="item in items"></div>
       polymer: <template is="dom-repeat" items="{{items}}"></template>
       vue: <div v-for="item in items"></div>
-      ember: {{#each items as |item}}<div></div>{{/div}}
+      ember: "{{#each items as |item}}<div></div>{{/div}}"
     remarks: |
       - **Angular 1:** See [`ngRepeat`](https://docs.angularjs.org/api/ng/directive/ngRepeat).
       - **Polymer:** See [Template repeater (`dom-repeat`)](https://www.polymer-project.org/1.0/docs/devguide/templates.html#dom-repeat).
@@ -360,7 +360,7 @@
       polymer: attributeChanged
       vue:
         comment: none
-       ember: didReceiveAttrs
+      ember: didReceiveAttrs
     remarks: |
       - **React:** [`willReceiveProps`](https://facebook.github.io/react/docs/component-specs.html#mounting-willreceiveprops)
   - label: Component updated
