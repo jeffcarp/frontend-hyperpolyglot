@@ -208,7 +208,7 @@
       react:
         comment: not supported
       angular2: <Child [(foo)]="bar" />
-      angular1:
+      angular1: <Child foo="bar" />
       polymer: "<Child foo='{{ bar }}' />\n<!-- and set notify: true -->"
       vue:
       ember: <Child foo=bar>
