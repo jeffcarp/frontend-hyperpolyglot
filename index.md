@@ -7,6 +7,8 @@ title: Front-end Hyperpolyglot
 
 _Inspired by [hyperpolyglot.org](http://hyperpolyglot.org/), a comparison of similar features in popular JavaScript frameworks._
 
+<p>Any contributors who are more familiar with these frameworks would be massively appreciated. The source is on <a href="https://github.com/jeffcarp/frontend-hyperpolyglot">GitHub</a>.</p>
+
 <table class="wiki-content-table">
   {% for category in site.data.frameworks %}
     {% if category.name %}
@@ -41,8 +43,6 @@ _Inspired by [hyperpolyglot.org](http://hyperpolyglot.org/), a comparison of sim
 </table>
 
 <div id="remarks">
-
-<p>The above data is nowhere near complete, any contributors who are more familiar with these frameworks would be massively appreciated. The source is on <a href="https://github.com/jeffcarp/frontend-hyperpolyglot">GitHub</a>.</p>
 
 {% for category in site.data.frameworks %}
   <h1 id="{{ category.name | slugify }}-note"><a href="#{{ category.name | slugify }}">{{ category.name }}</a></h1>
