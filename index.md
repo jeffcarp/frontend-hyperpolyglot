@@ -24,6 +24,7 @@ _Inspired by [hyperpolyglot.org](http://hyperpolyglot.org/), a comparison of sim
       <th>Polymer</th>
       <th>Vue</th>
       <th>Ember</th>
+      <th>Riot</th>
     </tr>
     {% for comparison in category.comparisons %}
       <tr>
