@@ -178,7 +178,7 @@
     frameworks:
       react: <Child foo={bar} />
       angular2: <Child [foo]="bar" />
-      angular1: <Child foo='scope.bar' />
+      angular1: <Child foo="{{ bar }}" />
       polymer: '<Child foo="{{ bar }}" />'
       vue: <Child :foo='bar' />
       ember: "{{Child foo=(readonly bar) }}"
