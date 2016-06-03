@@ -115,7 +115,7 @@
       - **Angular 2:** See [Angular Cheat Sheet](https://angular.io/docs/ts/latest/guide/cheatsheet.html).
   - label: Repeat
     frameworks:
-      react: items.map(item => <div></div>)
+      react: items.map(item => <div key={item.id}></div>)
       angular2: <div *ngFor="let item of items"></div>
       angular1: <div ng-repeat="item in items"></div>
       polymer: <template is="dom-repeat" items="{{items}}"></template>
