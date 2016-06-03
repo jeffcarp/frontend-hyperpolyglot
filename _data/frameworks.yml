@@ -69,7 +69,6 @@
       vue: <div v-text="message"></div>
       ember: <div>{{ textContent }}</div>
       riot: <div textContent={message}></div>
->>>>>>> Added Riot Js
     remarks: |
       - **Angular 1:** See [`ngBind`](https://docs.angularjs.org/api/ng/directive/ngBind).
       - **Polymer:** See [Annotated attribute binding](https://www.polymer-project.org/1.0/docs/devguide/data-binding.html#attribute-binding.)
@@ -96,6 +95,7 @@
       vue: <div>{{{ raw_html }}}</div>
       ember: <div>{{{ raw_html }}}</div>
       riot:
+        comment: see notes
     remarks: |
       Please don't use these in your programs. Filtering raw HTML on the server or in the browser will not protect you 100% against XSS. For a deeper look at the subject, please refer to the [Google Browser Security Handbook (PDF download)](https://storage.googleapis.com/google-code-attachments/browsersec/issue-8/comment-8/Google%20Browser%20Security%20Handbook.pdf) and the book [The Tangled Web: A Guide to Securing Modern Web Applications](http://lcamtuf.coredump.cx/tangled/).
 
@@ -396,7 +396,7 @@
       polymer: created
       vue: created
       ember: init
-      riot: this.on('before-mount',callback)
+      riot: before-mount
     remarks: |
       - **React:** [`componentWillMount`](https://facebook.github.io/react/docs/component-specs.html#mounting-componentwillmount)
       - **Angular 1:** See [https://docs.angularjs.org/guide/component#component-based-application-architecture](https://docs.angularjs.org/guide/component#component-based-application-architecture).
@@ -408,7 +408,7 @@
       polymer: ready
       vue: ready
       ember: didInsertElement
-      riot: this.on('mount',callback)
+      riot: mount
     remarks: |
       - **React:** [`componentDidMount`](https://facebook.github.io/react/docs/component-specs.html#mounting-componentdidmount)
   - label: On prop change
@@ -420,7 +420,7 @@
       vue:
         comment: none
       ember: didReceiveAttrs
-      riot: this.on('update',callback)
+      riot: update
     remarks: |
       - **React:** [`willReceiveProps`](https://facebook.github.io/react/docs/component-specs.html#mounting-willreceiveprops)
   - label: Component updated
@@ -435,7 +435,7 @@
       vue:
         comment: none
       ember: didUpdateAttrs
-      riot: this.on('updated',callback)
+      riot: updated
     remarks: |
       - **React:** [`componentDidUpdate`](https://facebook.github.io/react/docs/component-specs.html#mounting-componentdidupdate)
   - label: Before destroy
@@ -449,7 +449,7 @@
         comment: none
       vue: beforeDestroy
       ember: willDestroyElement
-      riot: this.on('before-unmount',callback)
+      riot: before-unmount
     remarks: |
       - **React:** [`componentWillUnmount`](https://facebook.github.io/react/docs/component-specs.html#mounting-componentwillunmount)
   - label: After destroy
@@ -461,6 +461,6 @@
       polymer: detatched
       vue: destroyed
       ember: didDestroyElement
-      riot: this.on('unmount',callback)
+      riot: unmount
     remarks: |
       - **React** has no `componentDidUnmount` method. See [ReactClass.js#L274](https://github.com/facebook/react/blob/ba9b985406ff56c2dea192b119328b6096895097/src/isomorphic/classic/class/ReactClass.js#L274).
