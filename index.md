@@ -3,7 +3,7 @@ layout: default
 title: Front-end Hyperpolyglot
 ---
 
-# [Front-end Hyperpolylglot](http://jeffcarp.github.io/frontend-hyperpolyglot/)
+# [Front-end Hyperpolyglot](http://jeffcarp.github.io/frontend-hyperpolyglot/)
 
 _Inspired by [hyperpolyglot.org](http://hyperpolyglot.org/), a comparison of similar features in popular JavaScript frameworks._
 
