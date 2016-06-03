@@ -62,7 +62,7 @@
       angular1: <div ng-bind="message"></div>
       polymer: <div textContent$="{{ textContent }}"></div>
       vue: <div v-text="message"></div>
-      ember: <div textContent="{{ textContent }}"></div>
+      ember: <div>{{ textContent }}</div>
     remarks: |
       - **Angular 1:** See [`ngBind`](https://docs.angularjs.org/api/ng/directive/ngBind).
       - **Polymer:** See [Annotated attribute binding](https://www.polymer-project.org/1.0/docs/devguide/data-binding.html#attribute-binding.)
@@ -120,7 +120,7 @@
       angular1: <div ng-repeat="item in items"></div>
       polymer: <template is="dom-repeat" items="{{items}}"></template>
       vue: <div v-for="item in items"></div>
-      ember: "{{#each items as |item}}<div></div>{{/div}}"
+      ember: "{{#each items as |item}}<div></div>{{/each}}"
     remarks: |
       - **Angular 1:** See [`ngRepeat`](https://docs.angularjs.org/api/ng/directive/ngRepeat).
       - **Polymer:** See [Template repeater (`dom-repeat`)](https://www.polymer-project.org/1.0/docs/devguide/templates.html#dom-repeat).
@@ -131,7 +131,7 @@
       angular1: <button ng-click="clicked()">
       polymer: <button on-tap="clicked">
       vue: <button v-on:click="clicked">
-      ember: <button onclick={{action 'clicked'}}>
+      ember: <button {{action 'clicked'}}>
     remarks: |
       - **Polymer:** See [Annotated event listener setup](https://www.polymer-project.org/1.0/docs/devguide/events.html#annotated-listeners).
 
