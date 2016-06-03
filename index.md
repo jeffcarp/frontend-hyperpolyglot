@@ -13,7 +13,7 @@ _Inspired by [hyperpolyglot.org](http://hyperpolyglot.org/), a comparison of sim
   {% for category in site.data.frameworks %}
     {% if category.name %}
     <tr>
-      <th colspan="7" id="{{ category.name | slugify }}"><a href="#{{ category.name | slugify }}-note">{{ category.name }}</a></th>
+      <th colspan="8" id="{{ category.name | slugify }}"><a href="#{{ category.name | slugify }}-note">{{ category.name }}</a></th>
     </tr>
     {% endif %}
     <tr>
@@ -24,6 +24,7 @@ _Inspired by [hyperpolyglot.org](http://hyperpolyglot.org/), a comparison of sim
       <th>Polymer</th>
       <th>Vue</th>
       <th>Ember</th>
+      <th>Riot</th>
     </tr>
     {% for comparison in category.comparisons %}
       <tr>
