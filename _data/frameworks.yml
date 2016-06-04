@@ -230,7 +230,7 @@
       vue:
         js: "{props: {}}"
       ember:
-        js: "{propTypes: {}}"
+        js: "// requires ember-prop-types\n{propTypes: {}}"
     remarks: |
       The key in the component configuration object to define the expected type of a passed prop.
 
