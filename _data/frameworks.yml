@@ -60,7 +60,7 @@
       react: <div textContent={message}></div>
       angular2: <div [textContent]="message"></div>
       angular1: <div ng-bind="message"></div>
-      ember: <div>{{ textContent }}</div>
+      ember:
       polymer: <div textContent$="{{ textContent }}"></div>
       vue: <div v-text="message"></div>
     remarks: |
