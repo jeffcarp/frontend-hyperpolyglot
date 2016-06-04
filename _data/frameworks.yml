@@ -21,22 +21,22 @@
   comparisons:
   - label: Text interpolation
     frameworks:
-      react: <div>{message}</div>
-      angular2: <div>{{ message }}</div>
-      angular1: <div>{{ message }}</div>
-      ember: <div>{{ message }}</div>
-      polymer: <div>{{ message }}</div>
-      vue: <div>{{ message }}</div>
+      react: "{ message }"
+      angular2: "{{ message }}"
+      angular1: "{{ message }}"
+      ember: "{{ message }}"
+      polymer: "{{ message }}"
+      vue: "{{ message }}"
     remarks: |
       - **Polymer:** see [Binding to text content](https://www.polymer-project.org/1.0/docs/devguide/data-binding.html#binding-to-text-content).
   - label: Transform interpolation
     frameworks:
-      react: <div>{filter(message)}</div>
-      angular2: <div>{{ message | filter }}</div>
-      angular1: <div>{{ message | filter }}</div>
-      ember: <div>{{filter message }}</div>
-      polymer: <div>{{ filter(message) }}</div>
-      vue: <div>{{ message | filter }}</div>
+      react: "{ filter(message) }"
+      angular2: "{{ message | filter }}"
+      angular1: "{{ message | filter }}"
+      ember: "{{filter message }}"
+      polymer: "{{ filter(message) }}"
+      vue: "{{ message | filter }}"
     remarks: |
       **React and Polymer** don't have the concept of 'filters' or 'pipes', but you can use a simple function to acheive the same result.
 
@@ -44,12 +44,12 @@
       - **Ember:** See [Helpers](https://guides.emberjs.com/v2.5.0/templates/handlebars-basics/#toc_helpers)
   - label: Transform with arguments
     frameworks:
-      react: <div>{filter(message, 'arg1', arg2)}</div>
-      angular2: "<div>{{ message | filter:'arg1':arg2 }}</div>"
-      angular1: "<div>{{ message | filter:'arg1':arg2 }}</div>"
-      ember: <div>{{filter message 'arg1' arg2 }}</div>
-      polymer: <div>{{ filter(message, 'arg1', arg2) }}</div>
-      vue: <div>{{ message | filter 'arg1' arg2 }}</div>
+      react: "{ filter(message, 'arg1', arg2) }"
+      angular2: "{{ message | filter:'arg1':arg2 }}"
+      angular1: "{{ message | filter:'arg1':arg2 }}"
+      ember: "{{filter message 'arg1' arg2 }}"
+      polymer: "{{ filter(message, 'arg1', arg2) }}"
+      vue: "{{ message | filter 'arg1' arg2 }}"
     remarks: |
       - **Angular 2:** See [Pipes](https://angular.io/docs/ts/latest/guide/pipes.html)
       - **Angular 1:** See [Filter](https://docs.angularjs.org/api/ng/filter/filter)
@@ -81,7 +81,7 @@
       - **Vue:** See [Directives > Arguments](https://vuejs.org/guide/syntax.html#Arguments).
   - label: Dangerous raw HTML output
     frameworks:
-      react: "<div dangerouslySetInnerHTML={{__html: raw_html }} />"
+      react: "<div \n  dangerouslySetInnerHTML={{\n    __html: raw_html\n  }} />"
       angular2: <div [innerHTML]="raw_html"></div>
       angular1: <div ng-bind-html="raw_html"></div>
       ember: <div>{{{ raw_html }}}</div>
@@ -115,11 +115,11 @@
       - **Angular 2:** See [Angular Cheat Sheet](https://angular.io/docs/ts/latest/guide/cheatsheet.html).
   - label: Repeat
     frameworks:
-      react: items.map(item => <div key={item.id}></div>)
+      react: "items.map(item => <div key={item.id} />)"
       angular2: <div *ngFor="let item of items"></div>
       angular1: <div ng-repeat="item in items"></div>
       ember: "{{#each items as |item}}<div></div>{{/each}}"
-      polymer: <template is="dom-repeat" items="{{items}}"></template>
+      polymer: "<template\n  is='dom-repeat'\n  items='{{items}}'>\n</template>"
       vue: <div v-for="item in items"></div>
     remarks: |
       - **Angular 1:** See [`ngRepeat`](https://docs.angularjs.org/api/ng/directive/ngRepeat).
@@ -198,7 +198,7 @@
         comment: not supported
       angular2: <input [(ngModel)]="foo" />
       angular1: <input ng-model="foo" />
-      ember: <input value={{foo}} onkeyup={{action (mut foo) value="target.value"}}>
+      ember: "<input \n  value={{foo}}\n  onkeyup={{\n    action (mut foo) value='target.value'\n  }}\n  />"
       polymer: <input value="{{foo::input}}">
       vue: <input v-model="foo" />
     remarks: |
