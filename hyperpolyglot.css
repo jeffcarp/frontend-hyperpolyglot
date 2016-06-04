@@ -146,6 +146,7 @@ a.newpage{
 }
 
 table {
+        font-size: 12px;
 	border: 1px solid #888;
 	border-collapse: collapse;
 	border-spacing: 0;
