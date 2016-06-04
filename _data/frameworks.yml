@@ -183,7 +183,7 @@
       vue: <Child :foo='bar' />
       ember: "{{Child foo=(readonly bar) }}"
     remarks: |
-      - **Polymer:** Learn more about [data binding in Polymer](https://www.polymer-project.org/1.0/docs/devguide/data-binding.html).
+      - **Polymer:** The child component must also be set up to treat the property as read-only. Learn more about [data binding in Polymer](https://www.polymer-project.org/1.0/docs/devguide/data-binding.html).
   - label: String literal prop
     frameworks:
       react: <Child foo='bar' />
@@ -214,6 +214,22 @@
       ember: <Child foo=bar>
     remarks: |
       - **Polymer:** See [Property change notification and two-way binding](https://www.polymer-project.org/1.0/docs/devguide/data-binding.html#property-notification).
+  - label: One-time binding
+    frameworks:
+      react:
+        comment: not supported
+      angular2:
+        comment: not supported
+      angular1: <Child foo="::bar" />
+      polymer: <Child foo="[[ bar ]]" />
+      vue: <Child foo="{{* bar }}" />
+      ember:
+        comment: not supported
+    remarks: |
+      When a property is passed down and never updated again.
+
+      - **Angular 1:** See [One-time binding](https://docs.angularjs.org/guide/expression#one-time-binding).
+      - **Polymer:** See [Creating a One Time Binding](https://github.com/PolymerLabs/polymer-patterns/blob/master/snippets/basics/creating-a-one-time-binding.html#L17) in polymer-patterns.
 
 - name: Property validation
   comparisons:
