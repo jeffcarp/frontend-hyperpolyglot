@@ -230,7 +230,7 @@
       vue:
         js: "{props: {}}"
       ember:
-        comment: (no prop types)
+        js: "{propTypes: {}}"
     remarks: |
       The key in the component configuration object to define the expected type of a passed prop.
 
@@ -246,6 +246,7 @@
       - **Angular 2:** Learn more about [Basic Types](https://www.typescriptlang.org/docs/handbook/basic-types.html) in TypeScript.
       - **Polymer:** Learn more about [declared properties in Polymer](https://www.polymer-project.org/1.0/docs/devguide/properties.html).
       - **Vue:** Learn more about [prop validation in Vue](https://vuejs.org/guide/components.html#Prop-Validation).
+      - **Ember:** Learn more about [prop validation in Ember](https://github.com/ciena-blueplanet/ember-prop-types).
   - label: Prop validate Number
     frameworks:
       react:
@@ -259,7 +260,7 @@
       vue:
         js: "{myNum: Number}"
       ember:
-        comment: (no prop types)
+        js: "{myNum: PropTypes.number}"
   - label: Prop validate String
     frameworks:
       react:
@@ -273,7 +274,7 @@
       vue:
         js: "{myStr: String}"
       ember:
-        comment: (no prop types)
+        js: "{myStr: PropTypes.string}"
   - label: Prop validate Array
     frameworks:
       react:
@@ -287,7 +288,7 @@
       vue:
         js: "{myArr: Array}"
       ember:
-        comment: (no prop types)
+        js: "{myArr: PropTypes.array}"
   - label: Prop validate Boolean
     frameworks:
       react:
@@ -301,7 +302,7 @@
       vue:
         js: "{myBool: Boolean}"
       ember:
-        comment: (no prop types)
+        js: "{myBool: PropTypes.bool}"
   - label: Prop validate Function
     frameworks:
       react:
@@ -315,7 +316,7 @@
       vue:
         comment: not supported
       ember:
-        comment: (no prop types)
+        js: "{myFunc: PropTypes.func}"
   - label: Prop validate Object
     frameworks:
       react:
@@ -329,7 +330,7 @@
       vue:
         js: "{myObj: Object}"
       ember:
-        comment: (no prop types)
+        js: "{myObj: PropTypes.object}"
   - label: Prop validate union
     frameworks:
       react:
@@ -342,7 +343,7 @@
       vue:
         js: "{myVar: [String, Number]}"
       ember:
-        comment: (no prop types)
+        js: "{myVar: PropTypes.oneOfType([\n  PropTypes.string, \n  PropTypes.number\n])}"
     remarks: |
       - **Angular 2:** [Advanced Types in TypeScript](https://www.typescriptlang.org/docs/handbook/advanced-types.html)
 
