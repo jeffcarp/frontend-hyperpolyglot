@@ -233,6 +233,31 @@
       - **Angular 1:** See [One-time binding](https://docs.angularjs.org/guide/expression#one-time-binding).
       - **Polymer:** See [Creating a One Time Binding](https://github.com/PolymerLabs/polymer-patterns/blob/master/snippets/basics/creating-a-one-time-binding.html#L17) in polymer-patterns.
 
+- name: Component internal state
+  comparisons:
+  - label: Set initial state
+    frameworks:
+      react:
+        js: "getIntitialState = () => { foo: 1 }"
+      angular2:
+      angular1:
+      ember:
+      polymer:
+      vue:
+        js: "{data: { foo: 1 }}"
+    remarks:
+  - label: Set state
+    frameworks:
+      react:
+        js: "this.setState({ foo: 2 })"
+      angular2:
+      angular1:
+        js: "this.foo = 2"
+      ember:
+      polymer:
+      vue:
+        js: "this.foo = 2"
+    remarks:
 - name: Property validation
   comparisons:
   - label: Prop validation key
