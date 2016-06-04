@@ -21,9 +21,9 @@ _Inspired by [hyperpolyglot.org](http://hyperpolyglot.org/), a comparison of sim
       <th>React</th>
       <th>Angular 2</th>
       <th>Angular 1</th>
+      <th>Ember</th>
       <th>Polymer</th>
       <th>Vue</th>
-      <th>Ember</th>
     </tr>
     {% for comparison in category.comparisons %}
       <tr>

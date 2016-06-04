@@ -5,17 +5,17 @@
       react: 15.0.2
       angular2: 2.0.0-beta.17
       angular1: 1.5.5
+      ember: 2.5.1
       polymer: 1.4.0
       vue: 1.0.24
-      ember: 2.5.1
   - label: Language used
     frameworks:
       react: ES6
       angular2: TypeScript
       angular1: ES5
+      ember: ES6
       polymer: ES6
       vue: ES6
-      ember: ES6
 
 - name: Templating logic
   comparisons:
@@ -24,9 +24,9 @@
       react: <div>{message}</div>
       angular2: <div>{{ message }}</div>
       angular1: <div>{{ message }}</div>
+      ember: <div>{{ message }}</div>
       polymer: <div>{{ message }}</div>
       vue: <div>{{ message }}</div>
-      ember: <div>{{ message }}</div>
     remarks: |
       - **Polymer:** see [Binding to text content](https://www.polymer-project.org/1.0/docs/devguide/data-binding.html#binding-to-text-content).
   - label: Transform interpolation
@@ -34,9 +34,9 @@
       react: <div>{filter(message)}</div>
       angular2: <div>{{ message | filter }}</div>
       angular1: <div>{{ message | filter }}</div>
+      ember: <div>{{filter message }}</div>
       polymer: <div>{{ filter(message) }}</div>
       vue: <div>{{ message | filter }}</div>
-      ember: <div>{{filter message }}</div>
     remarks: |
       **React and Polymer** don't have the concept of 'filters' or 'pipes', but you can use a simple function to acheive the same result.
 
@@ -47,9 +47,9 @@
       react: <div>{filter(message, 'arg1', arg2)}</div>
       angular2: "<div>{{ message | filter:'arg1':arg2 }}</div>"
       angular1: "<div>{{ message | filter:'arg1':arg2 }}</div>"
+      ember: <div>{{filter message 'arg1' arg2 }}</div>
       polymer: <div>{{ filter(message, 'arg1', arg2) }}</div>
       vue: <div>{{ message | filter 'arg1' arg2 }}</div>
-      ember: <div>{{filter message 'arg1' arg2 }}</div>
     remarks: |
       - **Angular 2:** See [Pipes](https://angular.io/docs/ts/latest/guide/pipes.html)
       - **Angular 1:** See [Filter](https://docs.angularjs.org/api/ng/filter/filter)
@@ -60,9 +60,9 @@
       react: <div textContent={message}></div>
       angular2: <div [textContent]="message"></div>
       angular1: <div ng-bind="message"></div>
+      ember: <div>{{ textContent }}</div>
       polymer: <div textContent$="{{ textContent }}"></div>
       vue: <div v-text="message"></div>
-      ember: <div>{{ textContent }}</div>
     remarks: |
       - **Angular 1:** See [`ngBind`](https://docs.angularjs.org/api/ng/directive/ngBind).
       - **Polymer:** See [Annotated attribute binding](https://www.polymer-project.org/1.0/docs/devguide/data-binding.html#attribute-binding.)
@@ -71,9 +71,9 @@
       react: <a href={ url }></a>
       angular2: <a [href]="url"></a>
       angular1: <a ng-href="{{ url }}"></a>
+      ember: <a href="{{url}}"></a>
       polymer: <a href$="{{ url }}"></a>
       vue: <a v-bind:href="url"></a>
-      ember: <a href="{{url}}"></a>
     remarks: |
       - **Angular 2:** See [bind to the `href` property](https://angular.io/docs/ts/latest/cookbook/a1-a2-quick-reference.html#!#bind-to-the-href-property).
       - **Angular 1:** See [`ngHref`](https://docs.angularjs.org/api/ng/directive/ngHref).
@@ -84,9 +84,9 @@
       react: "<div dangerouslySetInnerHTML={{__html: raw_html }} />"
       angular2: <div [innerHTML]="raw_html"></div>
       angular1: <div ng-bind-html="raw_html"></div>
+      ember: <div>{{{ raw_html }}}</div>
       polymer: <div content$="{{ raw_html }}"></div>
       vue: <div>{{{ raw_html }}}</div>
-      ember: <div>{{{ raw_html }}}</div>
     remarks: |
       Please don't use these in your programs. Filtering raw HTML on the server or in the browser will not protect you 100% against XSS. For a deeper look at the subject, please refer to the [Google Browser Security Handbook (PDF download)](https://storage.googleapis.com/google-code-attachments/browsersec/issue-8/comment-8/Google%20Browser%20Security%20Handbook.pdf) and the book [The Tangled Web: A Guide to Securing Modern Web Applications](http://lcamtuf.coredump.cx/tangled/).
 
@@ -97,9 +97,9 @@
       react: <div id={'item-' + id}></div>
       angular2: <div id="item-{{ id }}"></div>
       angular1: <div id="item-{{ id }}"></div>
+      ember:
       polymer: <div id$="item-{{ id }}"></div>
       vue: <div id="item-{{ id }}"></div>
-      ember:
     remarks: |
       - **Angular 2:** See [Attribute, class, and style bindings](https://angular.io/docs/ts/latest/guide/template-syntax.html#!#attribute-class-and-style-bindings)
       - **Vue:** See [Attributes](https://vuejs.org/guide/syntax.html#Attributes)
@@ -108,9 +108,9 @@
       react: "{shouldShow && <div></div>}"
       angular2: <div *ngIf="shouldShow"></div>
       angular1: <div ng-if='shouldShow'></div>
+      ember: "{{#if shouldShow}}<div></div>{{/if}}"
       polymer: <div dom-if='shouldShow'><div>
       vue: <div v-if='shouldShow'><div>
-      ember: "{{#if shouldShow}}<div></div>{{/if}}"
     remarks: |
       - **Angular 2:** See [Angular Cheat Sheet](https://angular.io/docs/ts/latest/guide/cheatsheet.html).
   - label: Repeat
@@ -118,9 +118,9 @@
       react: items.map(item => <div key={item.id}></div>)
       angular2: <div *ngFor="let item of items"></div>
       angular1: <div ng-repeat="item in items"></div>
+      ember: "{{#each items as |item}}<div></div>{{/each}}"
       polymer: <template is="dom-repeat" items="{{items}}"></template>
       vue: <div v-for="item in items"></div>
-      ember: "{{#each items as |item}}<div></div>{{/each}}"
     remarks: |
       - **Angular 1:** See [`ngRepeat`](https://docs.angularjs.org/api/ng/directive/ngRepeat).
       - **Polymer:** See [Template repeater (`dom-repeat`)](https://www.polymer-project.org/1.0/docs/devguide/templates.html#dom-repeat).
@@ -129,9 +129,9 @@
       react: <button onClick={clicked}>
       angular2: <button (click)="clicked()">
       angular1: <button ng-click="clicked()">
+      ember: <button {{action 'clicked'}}>
       polymer: <button on-tap="clicked">
       vue: <button v-on:click="clicked">
-      ember: <button {{action 'clicked'}}>
     remarks: |
       - **Polymer:** See [Annotated event listener setup](https://www.polymer-project.org/1.0/docs/devguide/events.html#annotated-listeners).
 
@@ -145,12 +145,12 @@
         js: "@Component({})class Polyglot {}"
       angular1:
         js: module.component('polyglot', {})
+      ember:
+        js: Ember.Component.extend({})
       polymer:
         js: class Polyglot extends HTMLElement
       vue:
         js: class Polyglot extends Vue
-      ember:
-        comment: not supported
     remarks: |
       - **Polymer:** See [Building web components using ES6 classes](https://www.polymer-project.org/1.0/articles/es6.html)
       - **Vue:** See gist: [Vue.js + ES6](https://gist.github.com/k33g/f4ea54b6a2cf9555b959)
@@ -162,12 +162,12 @@
         js: ng.core.Component({}).Class({})
       angular1:
         js: module.component('polyglot', {})
+      ember:
+        js: Ember.Component.extend({})
       polymer:
         js: Polymer({})
       vue:
         js: Vue.extend({})
-      ember:
-        js: Ember.Component.extend({})
     remarks: |
       - **Polymer:** See [Building web components using ES6 classes](https://www.polymer-project.org/1.0/articles/es6.html)
       - **Vue:** See gist: [Vue.js + ES6](https://gist.github.com/k33g/f4ea54b6a2cf9555b959)
@@ -179,9 +179,9 @@
       react: <Child foo={bar} />
       angular2: <Child [foo]="bar" />
       angular1: <Child foo="{{ bar }}" />
+      ember: "{{Child foo=(readonly bar) }}"
       polymer: '<Child foo="{{ bar }}" />'
       vue: <Child :foo='bar' />
-      ember: "{{Child foo=(readonly bar) }}"
     remarks: |
       - **Polymer:** The child component must also be set up to treat the property as read-only. Learn more about [data binding in Polymer](https://www.polymer-project.org/1.0/docs/devguide/data-binding.html).
   - label: String literal prop
@@ -189,18 +189,18 @@
       react: <Child foo='bar' />
       angular2: <Child foo='bar' />
       angular1: <Child foo='bar' />
+      ember: "{{Child foo='bar' }}"
       polymer: <Child foo='bar' />
       vue: <Child foo='bar' />
-      ember: "{{Child foo='bar' }}"
   - label: Two-way binding (native)
     frameworks:
       react:
         comment: not supported
       angular2: <input [(ngModel)]="foo" />
       angular1: <input ng-model="foo" />
+      ember: <input value={{foo}} onkeyup={{action (mut foo) value="target.value"}}>
       polymer: <input value="{{foo::input}}">
       vue: <input v-model="foo" />
-      ember: <input value={{foo}} onkeyup={{action (mut foo) value="target.value"}}>
     remarks: |
       - **Polymer:** See [Two-way binding to native elements](https://www.polymer-project.org/1.0/docs/devguide/data-binding.html#two-way-native).
   - label: Two-way binding (components)
@@ -209,9 +209,9 @@
         comment: not supported
       angular2: <Child [(foo)]="bar" />
       angular1: <Child foo="bar" />
+      ember: <Child foo=bar>
       polymer: "<Child foo='{{ bar }}' />\n<!-- and set notify: true -->"
       vue:
-      ember: <Child foo=bar>
     remarks: |
       - **Polymer:** See [Property change notification and two-way binding](https://www.polymer-project.org/1.0/docs/devguide/data-binding.html#property-notification).
   - label: One-time binding
@@ -221,10 +221,10 @@
       angular2:
         comment: not supported
       angular1: <Child foo="::bar" />
-      polymer: <Child foo="[[ bar ]]" />
-      vue: <Child foo="{{* bar }}" />
       ember:
         comment: not supported
+      polymer: <Child foo="[[ bar ]]" />
+      vue: <Child foo="{{* bar }}" />
     remarks: |
       When a property is passed down and never updated again.
 
@@ -241,12 +241,12 @@
         comment: as types on @Input properties (below)
       angular1:
         comment: (no prop types)
+      ember:
+        js: "// requires ember-prop-types\n{propTypes: {}}"
       polymer:
         js: "{properties: {}}"
       vue:
         js: "{props: {}}"
-      ember:
-        js: "// requires ember-prop-types\n{propTypes: {}}"
     remarks: |
       The key in the component configuration object to define the expected type of a passed prop.
 
@@ -271,12 +271,12 @@
         js: "@Input() myNum: number;"
       angular1:
         comment: (no prop types)
+      ember:
+        js: "{myNum: PropTypes.number}"
       polymer:
         js: "{myNum: Number}"
       vue:
         js: "{myNum: Number}"
-      ember:
-        js: "{myNum: PropTypes.number}"
   - label: Prop validate String
     frameworks:
       react:
@@ -285,12 +285,12 @@
         js: "@Input() myStr: string;"
       angular1:
         comment: (no prop types)
+      ember:
+        js: "{myStr: PropTypes.string}"
       polymer:
         js: "{myStr: String}"
       vue:
         js: "{myStr: String}"
-      ember:
-        js: "{myStr: PropTypes.string}"
   - label: Prop validate Array
     frameworks:
       react:
@@ -299,12 +299,12 @@
         js: "@Input() myArr: Array;"
       angular1:
         comment: (no prop types)
+      ember:
+        js: "{myArr: PropTypes.array}"
       polymer:
         js: "{myArr: Array}"
       vue:
         js: "{myArr: Array}"
-      ember:
-        js: "{myArr: PropTypes.array}"
   - label: Prop validate Boolean
     frameworks:
       react:
@@ -313,12 +313,12 @@
         js: "@Input() myBool: boolean;"
       angular1:
         comment: (no prop types)
+      ember:
+        js: "{myBool: PropTypes.bool}"
       polymer:
         js: "{myBool: Boolean}"
       vue:
         js: "{myBool: Boolean}"
-      ember:
-        js: "{myBool: PropTypes.bool}"
   - label: Prop validate Function
     frameworks:
       react:
@@ -327,12 +327,12 @@
         js: "@Input() myFunc: Function;"
       angular1:
         comment: (no prop types)
+      ember:
+        js: "{myFunc: PropTypes.func}"
       polymer:
         comment: not supported
       vue:
         comment: not supported
-      ember:
-        js: "{myFunc: PropTypes.func}"
   - label: Prop validate Object
     frameworks:
       react:
@@ -341,12 +341,12 @@
         js: "@Input() myObj: Object;"
       angular1:
         comment: (no prop types)
+      ember:
+        js: "{myObj: PropTypes.object}"
       polymer:
         js: "{myObj: Object}"
       vue:
         js: "{myObj: Object}"
-      ember:
-        js: "{myObj: PropTypes.object}"
   - label: Prop validate union
     frameworks:
       react:
@@ -355,11 +355,11 @@
         js: "@Input() myVar: string | number;"
       angular1:
         comment: (no prop types)
+      ember:
+        js: "{myVar: PropTypes.oneOfType([\n  PropTypes.string, \n  PropTypes.number\n])}"
       polymer:
       vue:
         js: "{myVar: [String, Number]}"
-      ember:
-        js: "{myVar: PropTypes.oneOfType([\n  PropTypes.string, \n  PropTypes.number\n])}"
     remarks: |
       - **Angular 2:** [Advanced Types in TypeScript](https://www.typescriptlang.org/docs/handbook/advanced-types.html)
 
@@ -370,9 +370,9 @@
       react: componentWillMount
       angular2: ngOnInit
       angular1: $onInit
+      ember: init
       polymer: created
       vue: created
-      ember: init
     remarks: |
       - **React:** [`componentWillMount`](https://facebook.github.io/react/docs/component-specs.html#mounting-componentwillmount)
       - **Angular 1:** See [https://docs.angularjs.org/guide/component#component-based-application-architecture](https://docs.angularjs.org/guide/component#component-based-application-architecture).
@@ -381,9 +381,9 @@
       react: componentDidMount
       angular2: ngAfterContentInit
       angular1: $postLink
+      ember: didInsertElement
       polymer: ready
       vue: ready
-      ember: didInsertElement
     remarks: |
       - **React:** [`componentDidMount`](https://facebook.github.io/react/docs/component-specs.html#mounting-componentdidmount)
   - label: On prop change
@@ -391,10 +391,10 @@
       react: willReceiveProps
       angular2: ngOnChanges
       angular1: $onChanges
+      ember: didReceiveAttrs
       polymer: attributeChanged
       vue:
         comment: none
-      ember: didReceiveAttrs
     remarks: |
       - **React:** [`willReceiveProps`](https://facebook.github.io/react/docs/component-specs.html#mounting-willreceiveprops)
   - label: Component updated
@@ -404,11 +404,11 @@
         comment: none
       angular1:
         comment: none
+      ember: didUpdateAttrs
       polymer:
         comment: none
       vue:
         comment: none
-      ember: didUpdateAttrs
     remarks: |
       - **React:** [`componentDidUpdate`](https://facebook.github.io/react/docs/component-specs.html#mounting-componentdidupdate)
   - label: Before destroy
@@ -418,10 +418,10 @@
         comment: none
       angular1:
         comment: none
+      ember: willDestroyElement
       polymer:
         comment: none
       vue: beforeDestroy
-      ember: willDestroyElement
     remarks: |
       - **React:** [`componentWillUnmount`](https://facebook.github.io/react/docs/component-specs.html#mounting-componentwillunmount)
   - label: After destroy
@@ -430,8 +430,8 @@
         comment: none
       angular2: ngOnDestroy
       angular1: $onDestroy
+      ember: didDestroyElement
       polymer: detatched
       vue: destroyed
-      ember: didDestroyElement
     remarks: |
       - **React** has no `componentDidUnmount` method. See [ReactClass.js#L274](https://github.com/facebook/react/blob/ba9b985406ff56c2dea192b119328b6096895097/src/isomorphic/classic/class/ReactClass.js#L274).
