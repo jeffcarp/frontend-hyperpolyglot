@@ -273,6 +273,7 @@
       vue:
         js: "data: {\n  foo: 1\n}"
       riot:
+        js: "this.foo = 1"
     remarks:
   - label: Set state
     frameworks:
@@ -289,6 +290,7 @@
       vue:
         js: "this.foo = 2"
       riot:
+        js: "this.foo = 2"
     remarks:
 - name: Property validation
   comparisons:
