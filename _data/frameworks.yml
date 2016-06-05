@@ -244,9 +244,11 @@
       angular1:
         js: "controller: function() {\n  this.foo = 1\n}"
       ember:
+        js: "{\n  foo: 1\n}"
       polymer:
+        js: "properties: {\n  foo: { value: 1 }\n}"
       vue:
-        js: "{data: { foo: 1 }}"
+        js: "data: {\n  foo: 1\n}"
     remarks:
   - label: Set state
     frameworks:
@@ -257,7 +259,9 @@
       angular1:
         js: "this.foo = 2"
       ember:
+        js: "this.set('foo', 2)"
       polymer:
+        js: "this.foo = 2"
       vue:
         js: "this.foo = 2"
     remarks:
