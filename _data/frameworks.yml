@@ -110,7 +110,7 @@
       react: "{shouldShow && <div />}"
       angular2: <div *ngIf="shouldShow">
       angular1: <div ng-if='shouldShow'>
-      ember: "{{#if shouldShow}}<div></div>{{/if}}"
+      ember: "{{#if shouldShow}}\n  <div></div>\n{{/if}}"
       polymer: <div dom-if='shouldShow'>
       vue: <div v-if='shouldShow'>
     remarks: |
