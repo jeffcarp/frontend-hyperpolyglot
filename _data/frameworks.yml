@@ -240,7 +240,9 @@
       react:
         js: "getIntitialState = () => { foo: 1 }"
       angular2:
+        js: "constructor() {\n  this.foo = 1\n}"
       angular1:
+        js: "controller: function() {\n  this.foo = 1\n}"
       ember:
       polymer:
       vue:
@@ -251,6 +253,7 @@
       react:
         js: "this.setState({ foo: 2 })"
       angular2:
+        js: "this.foo = 2"
       angular1:
         js: "this.foo = 2"
       ember:
