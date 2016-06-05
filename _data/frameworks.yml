@@ -132,7 +132,7 @@
       react: "items.map(item =>\n  <div key={item.id} />\n)"
       angular2: <div *ngFor="let item of items">
       angular1: <div ng-repeat="item in items">
-      ember: "{{#each items as |item}}\n  <div></div>\n{{/each}}"
+      ember: "{{#each items as |item|}}\n  <div></div>\n{{/each}}"
       polymer: "<template\n  is='dom-repeat'\n  items='{{items}}'>\n</template>"
       vue: <div v-for="item in items">
       riot: <div each={ item in items }>
