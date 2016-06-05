@@ -13,17 +13,14 @@ _Inspired by [hyperpolyglot.org](http://hyperpolyglot.org/), a comparison of sim
   {% for category in site.data.frameworks %}
     {% if category.name %}
     <tr>
-      <th colspan="7" id="{{ category.name | slugify }}"><a href="#{{ category.name | slugify }}-note">{{ category.name }}</a></th>
+      <th colspan="{{ site.data.labels | size | plus: 1 }}" id="{{ category.name | slugify }}"><a href="#{{ category.name | slugify }}-note">{{ category.name }}</a></th>
     </tr>
     {% endif %}
     <tr>
       <th></th>
-      <th>React</th>
-      <th>Angular 2</th>
-      <th>Angular 1</th>
-      <th>Ember</th>
-      <th>Polymer</th>
-      <th>Vue</th>
+      {% for label in site.data.labels %}
+        <th>{{ label }}</th>
+      {% endfor %}
     </tr>
     {% for comparison in category.comparisons %}
       <tr>
