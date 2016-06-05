@@ -250,6 +250,7 @@
       polymer: <Child foo="[[ bar ]]" />
       vue: <Child foo="{{* bar }}" />
       riot:
+        comment: not supported
     remarks: |
       When a property is passed down and never updated again.
 
