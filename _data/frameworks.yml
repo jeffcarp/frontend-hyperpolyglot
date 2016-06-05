@@ -514,6 +514,10 @@
       angular2: ngOnDestroy
       angular1: $onDestroy
       ember: didDestroyElement
+      polymer:
+        comment: none
+      vue:
+        comment: none
       riot: unmount
     remarks: |
       - **React** has no `componentDidUnmount` method. See [ReactClass.js#L274](https://github.com/facebook/react/blob/ba9b985406ff56c2dea192b119328b6096895097/src/isomorphic/classic/class/ReactClass.js#L274).
