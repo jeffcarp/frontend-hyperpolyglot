@@ -57,13 +57,15 @@
       - **Ember:** See [Helpers](https://guides.emberjs.com/v2.5.0/templates/handlebars-basics/#toc_helpers)
   - label: Bind text content
     frameworks:
-      react: <div textContent={message}></div>
-      angular2: <div [textContent]="message"></div>
-      angular1: <div ng-bind="message"></div>
-      ember:
-      polymer: <div textContent$="{{ textContent }}"></div>
-      vue: <div v-text="message"></div>
+      react: <div textContent={message}>
+      angular2: <div [textContent]="message">
+      angular1: <div ng-bind="message">
+      ember: <div textContent="{{ message }}">
+      polymer: <div textContent$="{{ message }}">
+      vue: <div v-text="message">
     remarks: |
+      A way of binding the text content of an element via an attribute.
+
       - **Angular 1:** See [`ngBind`](https://docs.angularjs.org/api/ng/directive/ngBind).
       - **Polymer:** See [Annotated attribute binding](https://www.polymer-project.org/1.0/docs/devguide/data-binding.html#attribute-binding.)
   - label: Bind href
@@ -82,11 +84,11 @@
   - label: Dangerous raw HTML output
     frameworks:
       react: "<div \n  dangerouslySetInnerHTML={{\n    __html: raw_html\n  }} />"
-      angular2: <div [innerHTML]="raw_html"></div>
-      angular1: <div ng-bind-html="raw_html"></div>
-      ember: <div>{{{ raw_html }}}</div>
-      polymer: <div content$="{{ raw_html }}"></div>
-      vue: <div>{{{ raw_html }}}</div>
+      angular2: <div [innerHTML]="raw_html">
+      angular1: <div ng-bind-html="raw_html">
+      ember: "{{{ raw_html }}}"
+      polymer: <div content$="{{ raw_html }}">
+      vue: "{{{ raw_html }}}"
     remarks: |
       Please don't use these in your programs. Filtering raw HTML on the server or in the browser will not protect you 100% against XSS. For a deeper look at the subject, please refer to the [Google Browser Security Handbook (PDF download)](https://storage.googleapis.com/google-code-attachments/browsersec/issue-8/comment-8/Google%20Browser%20Security%20Handbook.pdf) and the book [The Tangled Web: A Guide to Securing Modern Web Applications](http://lcamtuf.coredump.cx/tangled/).
 
@@ -94,33 +96,33 @@
       - **Vue:** See [Raw HTML](https://vuejs.org/guide/syntax.html#Raw-HTML).
   - label: Bind attribute value
     frameworks:
-      react: <div id={'item-' + id}></div>
-      angular2: <div id="item-{{ id }}"></div>
-      angular1: <div id="item-{{ id }}"></div>
-      ember:
-      polymer: <div id$="item-{{ id }}"></div>
-      vue: <div id="item-{{ id }}"></div>
+      react: <div id={'item-' + id}>
+      angular2: <div id="item-{{ id }}">
+      angular1: <div id="item-{{ id }}">
+      ember: <div id="item-{{ id }}">
+      polymer: <div id$={{ 'item='+id }}>
+      vue: <div id="item-{{ id }}">
     remarks: |
       - **Angular 2:** See [Attribute, class, and style bindings](https://angular.io/docs/ts/latest/guide/template-syntax.html#!#attribute-class-and-style-bindings)
       - **Vue:** See [Attributes](https://vuejs.org/guide/syntax.html#Attributes)
   - label: DOM add/remove
     frameworks:
-      react: "{shouldShow && <div></div>}"
-      angular2: <div *ngIf="shouldShow"></div>
-      angular1: <div ng-if='shouldShow'></div>
+      react: "{shouldShow && <div />}"
+      angular2: <div *ngIf="shouldShow">
+      angular1: <div ng-if='shouldShow'>
       ember: "{{#if shouldShow}}<div></div>{{/if}}"
-      polymer: <div dom-if='shouldShow'><div>
-      vue: <div v-if='shouldShow'><div>
+      polymer: <div dom-if='shouldShow'>
+      vue: <div v-if='shouldShow'>
     remarks: |
       - **Angular 2:** See [Angular Cheat Sheet](https://angular.io/docs/ts/latest/guide/cheatsheet.html).
   - label: Repeat
     frameworks:
-      react: "items.map(item => <div key={item.id} />)"
-      angular2: <div *ngFor="let item of items"></div>
-      angular1: <div ng-repeat="item in items"></div>
-      ember: "{{#each items as |item}}<div></div>{{/each}}"
+      react: "items.map(item =>\n  <div key={item.id} />\n)"
+      angular2: <div *ngFor="let item of items">
+      angular1: <div ng-repeat="item in items">
+      ember: "{{#each items as |item}}\n  <div></div>\n{{/each}}"
       polymer: "<template\n  is='dom-repeat'\n  items='{{items}}'>\n</template>"
-      vue: <div v-for="item in items"></div>
+      vue: <div v-for="item in items">
     remarks: |
       - **Angular 1:** See [`ngRepeat`](https://docs.angularjs.org/api/ng/directive/ngRepeat).
       - **Polymer:** See [Template repeater (`dom-repeat`)](https://www.polymer-project.org/1.0/docs/devguide/templates.html#dom-repeat).
@@ -198,7 +200,7 @@
         comment: not supported
       angular2: <input [(ngModel)]="foo" />
       angular1: <input ng-model="foo" />
-      ember: "<input \n  value={{foo}}\n  onkeyup={{\n    action (mut foo) value='target.value'\n  }}\n  />"
+      ember: "<input \n  value={{foo}}\n  onkeyup={{\n    action (mut foo)\n      value='target.value'\n  }}\n  />"
       polymer: <input value="{{foo::input}}">
       vue: <input v-model="foo" />
     remarks: |
