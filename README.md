@@ -6,6 +6,4 @@ At: http://jeffcarp.github.io/frontend-hyperpolyglot/
 
 <a href="http://jeffcarp.github.io/frontend-hyperpolyglot/"><img alt="website screenshot" src="https://cloud.githubusercontent.com/assets/916028/15264258/37131ce0-1926-11e6-81da-2f3491219a6f.png" width="100%" /></a>
 
-### Local development
-
-This is a Jekyll app, so first [install Jekyll](https://jekyllrb.com/docs/installation/). Then, just run `jekyll serve --watch` and go to `localhost:4000`! :smile:
+See a bug or something missing? Have a framework in mind? Head on over to [CONTRIBUTING.md](CONTRIBUTING.md)!
