@@ -199,7 +199,7 @@
       angular1: <Child foo="{{ bar }}" />
       ember: "{{Child foo=(readonly bar) }}"
       polymer: '<Child foo="{{ bar }}" />'
-      vue: <Child :foo='bar' />
+      vue: <child :foo='bar' />
       riot: <child foo={bar} />
     remarks: |
       - **Polymer:** The child component must also be set up to treat the property as read-only. Learn more about [data binding in Polymer](https://www.polymer-project.org/1.0/docs/devguide/data-binding.html).
@@ -210,7 +210,7 @@
       angular1: <Child foo='bar' />
       ember: "{{Child foo='bar' }}"
       polymer: <Child foo='bar' />
-      vue: <Child foo='bar' />
+      vue: <child foo='bar' />
       riot: <child foo='bar' />
   - label: Two-way binding (native)
     frameworks:
