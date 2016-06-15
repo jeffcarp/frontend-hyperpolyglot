@@ -233,7 +233,7 @@
       angular1: <Child foo="bar" />
       ember: <Child foo=bar>
       polymer: "<Child foo='{{ bar }}' />\n<!-- and set notify: true -->"
-      vue:
+      vue: <child :foo.sync="bar"></child>
       riot:
         comment: not supported
     remarks: |
@@ -248,7 +248,7 @@
       ember:
         comment: not supported
       polymer: <Child foo="[[ bar ]]" />
-      vue: <Child foo="{{* bar }}" />
+      vue: <child foo.once="bar" />
       riot:
         comment: not supported
     remarks: |
