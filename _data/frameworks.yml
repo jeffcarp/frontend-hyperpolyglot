@@ -66,7 +66,7 @@
       angular2: <div [textContent]="message">
       angular1: <div ng-bind="message">
       ember: <div textContent="{{ message }}">
-      polymer: <div textContent$="{{ message }}">
+      polymer: <div text-content="{{ message }}">
       vue: <div v-text="message">
       riot: <div textContent={message}>
     remarks: |
@@ -94,7 +94,7 @@
       angular2: <div [innerHTML]="raw_html">
       angular1: <div ng-bind-html="raw_html">
       ember: "{{{ raw_html }}}"
-      polymer: <div content$="{{ raw_html }}">
+      polymer: <div inner-h-t-m-l="{{ raw_html }}">
       vue: "{{{ raw_html }}}"
       riot:
         comment: see notes
@@ -110,7 +110,7 @@
       angular2: <div id="item-{{ id }}">
       angular1: <div id="item-{{ id }}">
       ember: <div id="item-{{ id }}">
-      polymer: <div id$={{ 'item='+id }}>
+      polymer: <div id$="item-{{ id }}">
       vue: <div id="item-{{ id }}">
       riot: <div id={'item-' + id}>
     remarks: |
@@ -122,7 +122,7 @@
       angular2: <div *ngIf="shouldShow">
       angular1: <div ng-if='shouldShow'>
       ember: "{{#if shouldShow}}\n  <div></div>\n{{/if}}"
-      polymer: <div dom-if='shouldShow'>
+      polymer: "<template\n  is='dom-if'\n  if='{{shouldShow}}'>\n</template>"
       vue: <div v-if='shouldShow'>
       riot: <div if={ shouldShow }>
     remarks: |
@@ -145,7 +145,7 @@
       angular2: <button (click)="clicked()">
       angular1: <button ng-click="clicked()">
       ember: <button {{action 'clicked'}}>
-      polymer: <button on-tap="clicked">
+      polymer: <button on-click="clicked">
       vue: <button v-on:click="clicked">
       riot: <button onclick={clicked}>
     remarks: |
@@ -164,7 +164,7 @@
       ember:
         js: Ember.Component.extend({})
       polymer:
-        js: class Polyglot extends HTMLElement
+        js: "class Polyglot extends HTMLElement { \n  beforeRegister() {\n    this.is = 'poly-glot';\n  }\n}"
       vue:
         js: class Polyglot extends Vue
       riot: <polyglot></polyglot>
@@ -182,7 +182,7 @@
       ember:
         js: Ember.Component.extend({})
       polymer:
-        js: Polymer({})
+        js: "Polymer({is: 'poly-glot'})"
       vue:
         js: Vue.extend({})
       riot: <polyglot></polyglot>
@@ -198,7 +198,7 @@
       angular2: <Child [foo]="bar" />
       angular1: <Child foo="{{ bar }}" />
       ember: "{{Child foo=(readonly bar) }}"
-      polymer: '<Child foo="{{ bar }}" />'
+      polymer: '<div foo="[[ bar ]]">'
       vue: <child :foo='bar' />
       riot: <child foo={bar} />
     remarks: |
@@ -209,7 +209,7 @@
       angular2: <Child foo='bar' />
       angular1: <Child foo='bar' />
       ember: "{{Child foo='bar' }}"
-      polymer: <Child foo='bar' />
+      polymer: <div foo="bar">
       vue: <child foo='bar' />
       riot: <child foo='bar' />
   - label: Two-way binding (native)
@@ -232,7 +232,7 @@
       angular2: <Child [(foo)]="bar" />
       angular1: <Child foo="bar" />
       ember: <Child foo=bar>
-      polymer: "<Child foo='{{ bar }}' />\n<!-- and set notify: true -->"
+      polymer: "<poly-glot foo='{{ bar }}'></poly-glot>\n<!-- and set notify: true -->"
       vue: <child :foo.sync="bar"></child>
       riot:
         comment: not supported
@@ -247,7 +247,8 @@
       angular1: <Child foo="::bar" />
       ember:
         comment: not supported
-      polymer: <Child foo="[[ bar ]]" />
+      polymer:
+        comment: not supported
       vue: <child foo.once="bar" />
       riot:
         comment: not supported
@@ -338,7 +339,7 @@
       ember:
         js: "{myNum: PropTypes.number}"
       polymer:
-        js: "{myNum: Number}"
+        js: "properties: {\n  myNum: {type: Number}  \n}"
       vue:
         js: "{myNum: Number}"
       riot:
@@ -354,7 +355,7 @@
       ember:
         js: "{myStr: PropTypes.string}"
       polymer:
-        js: "{myStr: String}"
+        js: "properties: {\n  myStr: {type: String}  \n}"
       vue:
         js: "{myStr: String}"
       riot:
@@ -370,7 +371,7 @@
       ember:
         js: "{myArr: PropTypes.array}"
       polymer:
-        js: "{myArr: Array}"
+        js: "properties: {\n  myArr: {type: Array}  \n}"
       vue:
         js: "{myArr: Array}"
       riot:
@@ -386,7 +387,7 @@
       ember:
         js: "{myBool: PropTypes.bool}"
       polymer:
-        js: "{myBool: Boolean}"
+        js: "properties: {\n  myBool: {type: Boolean}  \n}"
       vue:
         js: "{myBool: Boolean}"
       riot:
@@ -418,7 +419,7 @@
       ember:
         js: "{myObj: PropTypes.object}"
       polymer:
-        js: "{myObj: Object}"
+        js: "properties: {\n  myObj: {type: Number}  \n}"
       vue:
         js: "{myObj: Object}"
       riot:
@@ -434,6 +435,7 @@
       ember:
         js: "{myVar: PropTypes.oneOfType([\n  PropTypes.string, \n  PropTypes.number\n])}"
       polymer:
+        comment: not supported
       vue:
         js: "{myVar: [String, Number]}"
       riot:
@@ -472,7 +474,8 @@
       angular2: ngOnChanges
       angular1: $onChanges
       ember: didReceiveAttrs
-      polymer: attributeChanged
+      polymer:
+        js: "properties: {\n  foo: {observer: '_fooChanged'}  \n}"
       vue:
         comment: none
       riot: update
@@ -501,8 +504,7 @@
       angular1:
         comment: none
       ember: willDestroyElement
-      polymer:
-        comment: none
+      polymer: detached
       vue: beforeDestroy
       riot: before-unmount
     remarks: |
