@@ -419,7 +419,7 @@
       ember:
         js: "{myObj: PropTypes.object}"
       polymer:
-        js: "properties: {\n  myObj: {type: Number}  \n}"
+        js: "properties: {\n  myObj: {type: Object }  \n}"
       vue:
         js: "{myObj: Object}"
       riot:
