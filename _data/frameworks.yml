@@ -339,7 +339,7 @@
       ember:
         js: "{myNum: PropTypes.number}"
       polymer:
-        js: "properties: {\n  myNum: {type: Number}  \n}"
+        js: "{myNum: Number}"
       vue:
         js: "{myNum: Number}"
       riot:
@@ -355,7 +355,7 @@
       ember:
         js: "{myStr: PropTypes.string}"
       polymer:
-        js: "properties: {\n  myStr: {type: String}  \n}"
+        js: "{myStr: String}"
       vue:
         js: "{myStr: String}"
       riot:
@@ -371,7 +371,7 @@
       ember:
         js: "{myArr: PropTypes.array}"
       polymer:
-        js: "properties: {\n  myArr: {type: Array}  \n}"
+        js: "{myArr: Array}"
       vue:
         js: "{myArr: Array}"
       riot:
@@ -387,7 +387,7 @@
       ember:
         js: "{myBool: PropTypes.bool}"
       polymer:
-        js: "properties: {\n  myBool: {type: Boolean}  \n}"
+        js: "{myBool: Boolean}"
       vue:
         js: "{myBool: Boolean}"
       riot:
@@ -419,7 +419,7 @@
       ember:
         js: "{myObj: PropTypes.object}"
       polymer:
-        js: "properties: {\n  myObj: {type: Object }  \n}"
+        js: "{myObj: Object}"
       vue:
         js: "{myObj: Object}"
       riot:
