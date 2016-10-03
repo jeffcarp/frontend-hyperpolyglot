@@ -1,6 +1,6 @@
 ### New frameworks
 
-Please [create an issue](https://github.com/jeffcarp/frontend-hyperpolyglot/issues/new) proposing a new framework before submitting a PR. Currently the page is getting a bit wide, but new frameworks (with relatively wide usage) are always welcome. There might come a point soon when we have to re-think the layout to accommodate more frameworks.
+Please [create an issue](https://github.com/jeffcarp/frontend-hyperpolyglot/issues/new) proposing a new framework before submitting a PR. Currently the page is getting a bit wide. No new frameworks will be added until [#28](https://github.com/jeffcarp/frontend-hyperpolyglot/issues/28) is resolved.
 
 ### Local development
 
