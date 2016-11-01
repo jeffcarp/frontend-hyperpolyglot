@@ -1,0 +1,6 @@
+- name:
+  comparisons:
+  - label: Networking library
+    browsers:
+      chromium: Cronet
+      firefox: Necko
