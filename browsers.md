@@ -23,7 +23,7 @@ title: Browsers
         <td id="{{ comparison.label | slugify }}"><a href="#{{ comparison.label | slugify }}-note">{{ comparison.label }}</a></td>
         {% for browser in comparison.browsers %}
           {% if browser[1].link %}
-            <td><a href="{{ browser[1].link }}">{{ browser[1] }}</a></td>
+            <td><a href="{{ browser[1].link }}">{{ browser[1].linktext }}</a></td>
           {% else %}
             <td>{{ browser[1] }}</td>
           {% endif %}

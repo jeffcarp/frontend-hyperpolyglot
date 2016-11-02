@@ -6,7 +6,9 @@
       firefox: Necko
   - label: TLS implementation
     browsers:
-      chromium: BoringSSL
+      chromium:
+        linktext: BoringSSL
         link: https://www.chromium.org/Home/chromium-security/boringssl
-      firefox: NSS
+      firefox:
+        linktext: NSS
         link: https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS
