@@ -1,6 +1,12 @@
-- name:
+- name: Components
   comparisons:
   - label: Networking library
     browsers:
       chromium: Cronet
       firefox: Necko
+  - label: TLS implementation
+    browsers:
+      chromium: BoringSSL
+        link: https://www.chromium.org/Home/chromium-security/boringssl
+      firefox: NSS
+        link: https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS
